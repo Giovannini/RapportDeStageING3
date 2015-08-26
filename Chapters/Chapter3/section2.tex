@@ -1,0 +1,54 @@
+\section{Description générale de la nouvelle application}
+\label{sec:Description generale de l'application}
+L'application Espace Recruteur permet à des recruteurs d'entreprise de publier dans la partie publique du site Cadremploi une offre destinée à des cadres et cadres supérieurs.
+Il s'agit néanmoins de plus qu'un simple formulaire.
+En effet, en plus du remplissage d'un formulaire permettant de décrire l'offre qu'il souhaite déposer, l'espace recruteur propose plusieurs services.
+Le recruteur ayant un compte sur l'espace recruteur du site Cadremploi dispose d'un panneau de contrôle lui permettant de gérer ses offres et d'en consulter les informations associées.
+De plus, une équipe de Figaro CLASSIFIEDS supervise via une seconde application dédiée, la publication des offres.
+%----------------------------------------------------------------------------------------
+
+\subsection{Backoffice}
+\label{sub:Backoffice}
+Le backoffice est une application interne à Cadremploi et qui permet de gérer toutes les offres existantes.
+En effet, chaque offre créé par un recruteur se doit d'être complètement sous contrôle de manière à pouvoir gérer tout cas inattendu.
+Ainsi, cette application est développée en parallèle à l'espace recruteur par notre équipe, comme un panneau de gestion de toutes offres rédigées par les recruteurs.
+Les fonctionnalités nécessaires sur ce backoffice sont:
+\begin{itemize}
+  \item Le login "en tant que" un autre recruteur.
+  Il est possible depuis le backoffice de se connecter pour éditer une offre comme si on était le recruteur qui l'avait rédigé et ainsi y apporter tous les changements désirés.
+  Cela permet un contrôle parfait sur une offre et ainsi de pouvoir gérer tous les problèmes potentiels.
+  \item La gestion de la discrimination des offres en fonction de leur contenu.
+  Ainsi, si l'offre est détectée comme présentant des descriptions contenant des termes discriminants, elle n'est pas directement publiée sur le site.
+  En effet, elle ne sera visible que sur le backoffice d'où elle sera relue par des responsables de la relation client (RC).
+  Les RC sont chargés de traiter avec le client et de modifier avec lui l'offre pour la rendre publiable dans les plus brefs délais.
+  Le but de cette procédure est de ne pas handicaper le client et de régler les problèmes rencontrés rapidement.
+  \item Le suivi de l'évolution du client au cours de la création de son offre.
+  Cette fonctionnalité permet à un RC de pouvoir se rendre compte du parcours du client lorsque celui-ci rédige son offre (l'ordre dans lequel il a rempli les champs, le temps qu'il a mis à les remplir, ...) et donc de pouvoir l'aider au mieux lors de sa prise de contact.
+  Les événements de modification effectués par le recruteur au cours de sa saisie sont donc visibles par le RC consultant une offre donnée.
+\end{itemize}
+
+\subsection{Statistiques}
+\label{sub:Statistiques}
+Tout d'abord, un système de statistiques mesurant la rentabilité de l'annonce est mis en place pour que le recruteur puisse suivre l'évolution de son offre.
+Ce système de statistiques est totalement externalisé de l'application et il permet ainsi à tout Figaro Classifieds de récupérer des statistiques sur l'utilsation de l'espace recruteur de Cadremploi et il a été développé par une équipe différente de celle de Cadremploi.
+L'incorporation de cette API de statistiques ainsi que la récupération des informations nécessaires était un point important dans le développement du nouvel Espace Recruteur.
+
+\subsection{Label qualité}
+\label{sub:Label qualité}
+Une des autres manière de garantir la qualité des offres présente sur Cadremploi est la création d'un label qualité.
+Il s'agit en somme d'un système de classement des offres qui fera passer les offres considérées comme étant de qualité devant celles ne l'étant pas dans la liste visible sur l'espace public.
+Il s'agit d'un système permettant d'inciter le recruteur à proposer des annonces avec des descriptions complètes ou des vidéos présentant l'entreprise, de manière à proposer un taux d'offres attractives plus important.
+Cette fonctionnalité n'est pas implémentée à ce jour.
+
+\subsection{Gestion des contrats}
+\label{sub:Gestion des contrats}
+Bizio toussa
+
+\subsection{Event sourcing}
+\label{sub:Event sourcing}
+Enfin, une gestion fine des modifications apportés par les recruteurs à leurs offres sera faite.
+En effet, chaque modification faite par un recruteur sur son annonce sera enregistré de manière à suivre son évolution au cours du processus de mise en ligne d'annonce.
+Elle permettra par exemple aux RC traitant avec les recruteurs de pouvoir comprendre clairement la façon dont ils ont procédés et ainsi mieux les aider.
+
+\paragraph{}
+Seule la gestion des modifications avait été débutée à mon arrivée et j'ai ainsi participé au développement des autres nouvelles fonctionnalités.

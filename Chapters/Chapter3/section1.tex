@@ -1,0 +1,55 @@
+\section{Cahier des charges et fonctionnement général du cycle de développement}
+%----------------------------------------------------------------------------------------
+\subsection{Contenu du stage}
+\label{sub:Contenu du stage}
+
+Le sujet principal de mon stage concernait la refonte de l'espace recruteur du site cadremploi.fr.
+CADREMPLOI.fr a conçu un espace réservé aux professionnels afin de les aider dans leurs campagnes de recrutement.
+Grâce à ce service de e-commerce, il leur est possible d'accéder à tous les produits et services qu'offre Cadremploi et de payer directement en ligne avec leur carte de crédit ou par chèque après réception de la facture.
+%%%%%%%%%%%TODO%%%%%%%%%%%%%%%%%%%%%%
+Cette application web avait déjà fait l'objet d'un développement il y a BLABLA ans et une refonte totale en était nécessaire, de manière à proposer des services nouveaux ainsi qu'un design plus actuel.
+Concrètement, les principaux objectifs de ce stage étaient les suivants:
+\begin{itemize}
+  \item{} Développer de nouvelles fonctionnalités dans un environnement technique dynamique (Play! Scala, ElasticSearch, AngularJS)
+  \item{} Maintenir le haut niveau de qualité et de tests présents
+  \item{} Participer aux ateliers d'architecture et de cadrages techniques
+  \item{} Echanger autour de bonnes pratiques avec les équipes de développement
+\end{itemize}
+%%%%%%%%%%%TODO%%%%%%%%%%%%%%%%%%%%%%
+Les fonctionnalités attendues comprenaient notamment la mise en place du pattern Event Sourcing, que je détaillerai plus tard, de manière à pouvoir suivre de manière rigoureuse l'évolution de chaque utilisateur dans l'espace recruteur, ainsi que la simplification du système de classification des offres en créant un produit \"de base\" auquel se grefferont des options.
+
+%----------------------------------------------------------------------------------------
+\subsection{Méthodologie de management}
+\label{sub:Méthodologie de management}
+\paragraph{}
+L'équipe Cadremploi, sur le projet Espace Recruteur notamment, suit une méthodologie Agile.
+%%%%%%%%%%%TODO%%%%%%%%%%%%%%%%%%%%%%
+% Bref résumé de ce qu'est la méthode Agile
+
+% Rappel, MEP chaque semaine + MEPs exceptionnelles, sprint de 2 semaines
+Le système de tickets post-it, des stand-up-meeting était très bien suivi bien que leur pratique ne soit pas un exercice figé.
+Le contenu des stand-up-meeting est par exemple passé au cours de mon stage de "Qu'est-ce que j'ai fait?, Qu'est-ce que je vais faire?" à des questions plus pratiques: "Qu'est-ce que j'ai fait de réellement impactant pour le reste de l'équipe? Quels dysfonctionnements ai-je remarqué?".
+Finalement, plutôt que l'évolution de chacun dans sa tâche, c'est l'évolution de l'application elle-même qui était alors discutée durant les stands-up, réduisant ainsi le temps de l'exercice, ce qui était nécessaire dans cette équipe de 10 personnes.
+\paragraph{}
+Les post-its suivaient un cycle de vie dont les étapes rentraient dans les catégories suivantes:
+\begin{itemize}
+  \item{Nouveau}, il s'agit du statut des tickets qui viennent d'arriver sur le tableau et qui seront donc à traiter prochainement
+  \item{En cours}, il s'agit d'un ticket qu'un membre de l'équipe est en train de traiter.
+  \item{Recette équipe}, lorsqu'une tâche est terminée, elle doit être validée par un membre de l'équipe; ce système de team review que je traiterai plus tard permet d'éviter de nombreuses erreurs au cours du développement de l'application.
+  \item{Recette PO} lorsque le ticket passe l'étape de recette équipe, il arrive en recette PO.
+  Le Project Owner s'occupe donc de vérifier que les modifications apportées correspondent bien aux attentes et qu'elles ne perturbent pas les anciennes fonctionnalités.
+  Si un problème est rencontré, le PO rédige ses retours et la personne responsable du ticket se charge de corriger les problèmes.
+  Le ticket reste dans le même état mais un jeu d'étiquettes "Retours Recette" et "Corrigé" est déposé sur le ticket pour qu'il soit possible de suivre l'évolution des corrections.
+  \item{Validé}, le PO valide le ticket et les modifications seront mises en production sous peu
+  \item{En attente}, le ticket ne peut être traité pour le moment; une synchronisation avec une autre équipe est nécessaire ou bien des questions restent sans réponse.
+\end{itemize}
+Ainsi les membres de l'équipe choisissent arbitrairement un ticket qu'il traitent en collant une étiquette les représentant dessus et déplacent le ticket dans la catégorie à laquelle il correspond.
+\paragraph{}
+Le tableau sur lequel sont affiché les tickets sont plutôt grands et plusieurs méthodes sont utilisés pour permettre à l'équipe de s'y retrouver rapidement.
+En effet, en plus des colonnes de catégories dans lesquelles sont rangés les tickets, un code couleur permettait de différencier les tâches techniques des tâches fonctionnelles, ainsi que les tâches traitant de parties de Cadremploi autre que l'espace recruteur (projet de refonte de la Home, ...).
+De plus, de petites étiquettes, en plus de celles représentant les membres de l'équipe, sont placées sur les tickets et permettent d'indiquer facilement si un des posts-its représente une tâche qui doit être mise en production dans la semaine (Cible MEP), ou si des retours suite à une recette (équipe ou PO) sont à traiter.
+\paragraph{}
+Enfin, les post-its représentant nos tâches rédigés sur un tableau se trouvent aussi référencés sur l'outil Redmine, une application web de gestion de projets, qui stocke toutes les informations concernant une tâche donnée.
+Ce stockage double de l'information est un peu lourd; en effet, il est nécessaire de déplacer le ticket sur le tableau et d'effectuer le même changement en ligne sur Redmine.
+Le point positif est qu'il permet à toute l'équipe, même en télétravail, d'accéder facilement à l'information concernant une tâche, notamment aux différentes discussions ayant eu lieu concernant cette tâche.
+Il est cependant nécessaire de conserver l'affichage au tableau puisqu'il est bien plus visuel et permet à l'équipe d'échanger bien plus facilement que si le support était uniquement digital.

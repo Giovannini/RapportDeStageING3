@@ -1,0 +1,52 @@
+\section{Aperçu des technologies et des techniques utilisées}
+
+\subsection{Langages}
+\label{sub:Langages}
+\subsubsection{Backend}
+\label{subs:Backend}
+Le nouvel espace recruteur est géré en backend via le framework Play! dans sa dernière version (2.4.2) et sous le langage Scala.
+Il s'agit d'un couple qui permet d'écrire du code rapidement et de façon maintenable.
+Play est l'un des framework les plus connus dans le monde Java et offre de nombreux avantages:
+\begin{itemize}
+  \item Il supporte le rechargement à chaud.
+  Il suffit de lancer Play via sa console en mode développement et il prendra automatiquement en compte à chaud les changements effectués sur le code, mais aussi les templates ou le routage.
+  Cela contribue grandement au gain de productivité qu'offre Play.
+  \item En plus de s’appuyer sur du code à typage statique, Play propose la sécurité du typage à d’autres endroits et notamment sur les templates ou sur le routage des différents contrôleurs.
+  Un certain nombre de problèmes sont alors mis en lumière directement à l’étape de la compilation.
+  \item Il permet d'exécuter des tests, notamment sur la couche web à plusieurs niveaux:
+  On peut par exemple tester un contrôleur en démarrant un serveur web (donc via HTTP) ou, sans le démarrer, en appelant simplement le contrôleur avec le contexte qui va bien, le tout de manière simple et rapide à l’exécution.
+  \item Il est sans état et basé sur des entrées sorties non bloquantes et permet ainsi une capacité à monter en charge très intéressante
+  \item Il supporte nativement REST, JSON, Websocket entre autres et se présente donc comme un framework moderne
+\end{itemize}
+Un des points négatifs de ce choix en backend est l'utilisation de fait obligatoire de SBT qui nous a posé de nombreux problèmes
+\subsubsection{Frontend}
+\label{subs:Frontend}
+Du côté front, l'équipe a utilisé le framework AngularJS ainsi que la librairie D3.js qui permettent des animations dynamiques.
+\subsection{Environnements et outils}
+Le développement de l'espace recruteur s'est fait sous le framework Play! et IntelliJ Idea était l'IDE utilisé par l'équipe pour développer, puisqu'il offre une bonne intégration de ce framework.
+J'avais déjà souvent utilisé cet IDE pour les différents projets que j'ai eu à rendre tout au long de ma scolarité à l'EISTI, ainsi son utilisation ne m'a posé aucun problème.
+L'équipe étant nombreuse et l'application étant sujete à grossir avec le temps, un outil de gestion de versions a été utilisée.
+Git est l'outil le plus répandu et le plus efficace connu, c'est ce que l'équipe Cadremploi a utilisé.
+Il s'agissait aussi d'un outil que j'avais beaucoup utilisé mais de manière très simpliste et j'ai appris à m'en servir d'une toute autre façon, bien plus complète, pendant ce stage.
+L'équipe Cadremploi utilise aussi Jenkins comme outil d'intégration continue pour déployer les nouveautés sur les différents environnement de production utilisés.
+Cet outil avait été brièvement présenté lors du cours d'Outils de Développement mais jamais utilisé.
+Bien que nous avions été tenté de mettre en place un Jenkins avec mon équipe de Projet de Fin d'Étude, cela ne s'est jamais fait par manque de temps et puisqu'un besoin concret ne s'est jamais montré.
+Je n'ai pas eu de mal à l'utiliser puisqu'une fois configuré, cet outil est réelement simple d'utilisation.
+Plusieurs environnements de développement sont utilisés par Cadremploi comme pour les autres équipes de Figaro Classifieds:
+\begin{itemize}
+  \item{Environnement de développement}, où les développeurs postent régulièrement les améliorations qu'ils mettent en place. Jenkins n'est pas utilisé pour cet environnement puisque les changements y sont publiés directement via Git.
+  \item{Environnement de recette}, où la Project Owner vérifie que les changements apportés fonctionnent effectivement et les valide.
+  \item{Environnement de pré-production} qui est un environnement qui ressemble autant que possible à l'environnement de production et où sont surtout testés les architectures
+  \item{Environnement de production} qui est la dernière étape, contenant l'application utlisée réelement par les utilisateurs
+\end{itemize}
+J'ai été habitué durant ma scolarité à l'EISTI à utiliser la majorité des outils présentés précédemment puisque j'étais uniquement étranger à Jenkins. J'ai malgré tout grandement progressé dans mon utilisation de ces outils, particulièrement pour Git puisque j'ai redécouvert l'outil puisque le projet auquel je participais differais grandement en taille de ceux auquels j'avais contribué auparavant.
+%Potentiellement, Rundeck, Kibana, Puppet.
+
+\subsection{Techniques utilisées}
+\label{sub:Techniques utilisées}
+\subsubsection{Organisation Git}
+\label{subs:Organisation Git}
+
+\subsubsection{Concertations d'équipe}
+\label{subs:Concertations d'équipe}
+%statuts d'une offre, utilisation du fonctionnel, bonnes pratiques, ...

@@ -1,0 +1,18 @@
+\section{CQRS: Command Query Responsibility Seggregation}
+\label{sec:CQRS: Command Query Responsibility Seggregation}
+Le pattern CQRS repose sur le principe de séparation entre l'écriture et la lecture de l'information.
+C'est un pattern que nous avons suivi lors du développement de l'espace recruteur puisque la séparations des composants de traitement (les "commands") et de restitution (les "queries") de l'information offrait une architecture très intéressante de laquelle nous avons tiré de nombreux bénéfices tels que la suppression du risque d'effets de bord ou l'allègement des classes de service.
+\subsection{Le pattern Command}
+\label{sub:Le pattern Command}
+Une commande représente une action destinée à être exécutée.
+Dans le cas de l'espace recruteur du site Cadremploi.fr, ces commandes ont pour but de stocker en base les événements altérant le système.
+Concrètement, ce pattern consiste à englober un appel de méthode dans un objet de type Command qui appelle un objet de type CommandHandler qui appelera lui la-dite méthode.
+Bien que cela augmente les lignes de code (il faut grossièrement 2 classes pour appeler une méthode), le code que propose le pattern Command est plus expressif, mieux découpé et simple à tester.
+\subsection{Le pattern Query}
+\label{sub:Le pattern Query}
+La partie Query de ce modèle se base sur le fait que les objets du modèle sont volumineux et qu'il est possible de s'en passer.
+En effet le besoin représenté ici est celui d'une lecture dans un cas d'utilisation bien précis.
+Le pattern Query consiste alors à exécuter une requête précise en base et de restituer un objet DTO concis qui pourra être utilisé directement.
+Le modèle CQRS de base peut s'avérer problématique puisque la grosse majorité des sollicitations du système se fait sur cette partie.
+% Pour le site Cadremploi, cette requête est une requête ElasticSearch et est donc extrêmement rapide.
+% La partie de Read de l'application se résume ainsi à la simple exécution d'une requête ES et au remplissage de DTO.

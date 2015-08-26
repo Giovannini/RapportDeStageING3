@@ -1,0 +1,73 @@
+\contentsline {chapter}{R\IeC {\'e}sum\IeC {\'e}}{ii}{dummy.1}
+\vspace {1em}
+\contentsline {chapter}{Remerciements}{iii}{dummy.2}
+\vspace {1em}
+\contentsline {chapter}{Contents}{iv}{dummy.3}
+\contentsline {chapter}{List of Figures}{vi}{dummy.5}
+\contentsline {chapter}{Abbreviations}{vii}{dummy.7}
+\contentsline {chapter}{Symbols}{viii}{dummy.10}
+\vspace {2em}
+\contentsline {chapter}{\numberline {1}Recherche du stage}{1}{chapter.13}
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.14}
+\contentsline {section}{\numberline {1.2}La fa\IeC {\c c}on dont j'ai proc\IeC {\'e}d\IeC {\'e}}{1}{section.15}
+\contentsline {subsection}{\numberline {1.2.1}Mes motivations}{1}{subsection.16}
+\contentsline {subsection}{\numberline {1.2.2}Les entreprises contact\IeC {\'e}es}{2}{subsection.17}
+\contentsline {subsection}{\numberline {1.2.3}Les r\IeC {\'e}sultats de mes recherches}{2}{subsection.18}
+\contentsline {section}{\numberline {1.3}Conclusion}{2}{section.19}
+\contentsline {chapter}{\numberline {2}L'environnement du stage}{3}{chapter.20}
+\contentsline {section}{\numberline {2.1}Description objective de l'entreprise}{3}{section.21}
+\contentsline {subsection}{\numberline {2.1.1}L'entreprise en g\IeC {\'e}n\IeC {\'e}ral}{3}{subsection.22}
+\contentsline {subsubsection}{\numberline {2.1.1.1}Secteur d'activit\IeC {\'e}}{3}{subsubsection.23}
+\contentsline {subsubsection}{\numberline {2.1.1.2}M\IeC {\'e}tiers}{4}{subsubsection.24}
+\contentsline {subsubsection}{\numberline {2.1.1.3}Chiffre d'affaire}{4}{subsubsection.25}
+\contentsline {subsubsection}{\numberline {2.1.1.4}Effectifs}{4}{subsubsection.26}
+\contentsline {subsubsection}{\numberline {2.1.1.5}Organisation interne}{4}{subsubsection.27}
+\contentsline {subsubsection}{\numberline {2.1.1.6}Relations du groupe}{4}{subsubsection.28}
+\contentsline {subsection}{\numberline {2.1.2}L'entreprise et son informatique}{4}{subsection.29}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Outils, technologies et m\IeC {\'e}thodes}{4}{subsubsection.30}
+\contentsline {subsubsection}{\numberline {2.1.2.2}Outils de travail collaboratifs}{5}{subsubsection.31}
+\contentsline {section}{\numberline {2.2}L'environnement de travail}{5}{section.32}
+\contentsline {subsection}{\numberline {2.2.1}Les relations humaines au sein de l'entreprise}{5}{subsection.33}
+\contentsline {subsection}{\numberline {2.2.2}Relations de la direction avec le reste du personnel}{5}{subsection.34}
+\contentsline {subsection}{\numberline {2.2.3}Relations entre services, d\IeC {\'e}partements et divisions}{6}{subsection.35}
+\contentsline {subsection}{\numberline {2.2.4}Relations entre les diff\IeC {\'e}rentes cat\IeC {\'e}gories de personnel et les diff\IeC {\'e}rents niveaux hi\IeC {\'e}rarchiques}{6}{subsection.36}
+\contentsline {section}{\numberline {2.3}Mon int\IeC {\'e}gration dans l'entreprise}{6}{section.37}
+\contentsline {chapter}{\numberline {3}Les apports techniques}{7}{chapter.38}
+\contentsline {section}{\numberline {3.1}Cahier des charges et fonctionnement g\IeC {\'e}n\IeC {\'e}ral du cycle de d\IeC {\'e}veloppement}{7}{section.39}
+\contentsline {subsection}{\numberline {3.1.1}Contenu du stage}{7}{subsection.40}
+\contentsline {subsection}{\numberline {3.1.2}M\IeC {\'e}thodologie de management}{8}{subsection.41}
+\contentsline {paragraph}{}{8}{section*.42}
+\contentsline {paragraph}{}{8}{section*.43}
+\contentsline {section}{\numberline {3.2}Description g\IeC {\'e}n\IeC {\'e}rale de la nouvelle application}{9}{section.44}
+\contentsline {subsection}{\numberline {3.2.1}Statistiques}{9}{subsection.45}
+\contentsline {subsection}{\numberline {3.2.2}Backoffice}{9}{subsection.46}
+\contentsline {subsection}{\numberline {3.2.3}Label qualit\IeC {\'e}}{10}{subsection.47}
+\contentsline {subsection}{\numberline {3.2.4}Gestion des contrats}{10}{subsection.48}
+\contentsline {subsection}{\numberline {3.2.5}Event sourcing}{10}{subsection.49}
+\contentsline {paragraph}{}{11}{section*.50}
+\contentsline {section}{\numberline {3.3}Aper\IeC {\c c}u des technologies et des techniques utilis\IeC {\'e}es}{11}{section.51}
+\contentsline {subsection}{\numberline {3.3.1}Environnements et outils}{11}{subsection.52}
+\contentsline {section}{\numberline {3.4}Une \IeC {\'e}quipe nombreuse}{12}{section.53}
+\contentsline {subsection}{\numberline {3.4.1}Revue de code}{12}{subsection.54}
+\contentsline {paragraph}{}{12}{section*.55}
+\contentsline {paragraph}{}{12}{section*.56}
+\contentsline {paragraph}{}{13}{section*.57}
+\contentsline {subsection}{\numberline {3.4.2}Utilisation de Git}{13}{subsection.58}
+\contentsline {section}{\numberline {3.5}CQRS: Command Query Responsibility Seggregation}{13}{section.59}
+\contentsline {subsection}{\numberline {3.5.1}Le pattern Command}{14}{subsection.60}
+\contentsline {subsection}{\numberline {3.5.2}Le pattern Query}{14}{subsection.61}
+\contentsline {section}{\numberline {3.6}Event sourcing}{14}{section.62}
+\contentsline {subsection}{\numberline {3.6.1}Fonctionnement d\IeC {\'e}sir\IeC {\'e}}{14}{subsection.63}
+\contentsline {subsection}{\numberline {3.6.2}Fonctionnement technique}{15}{subsection.64}
+\contentsline {subsubsection}{\numberline {3.6.2.1}Enregistrement de l'\IeC {\'e}v\IeC {\'e}nement}{15}{subsubsection.65}
+\contentsline {subsubsection}{\numberline {3.6.2.2}Utilisation de l'\IeC {\'e}v\IeC {\'e}nement}{15}{subsubsection.66}
+\contentsline {section}{\numberline {3.7}Domain Driven Development}{15}{section.67}
+\contentsline {section}{\numberline {3.8}Organisation}{15}{section.68}
+\contentsline {section}{\numberline {3.9}Auto-\IeC {\'e}valuation}{16}{section.69}
+\contentsline {section}{\numberline {3.10}R\IeC {\'e}sultats et prolongements possibles}{16}{section.70}
+\contentsline {chapter}{\numberline {4}Le stage dans ma formation}{17}{chapter.71}
+\contentsline {section}{\numberline {4.1}Ce qui m'a \IeC {\'e}t\IeC {\'e} le plus utile dans ma formation}{17}{section.72}
+\contentsline {section}{\numberline {4.2}Ce que m'a apport\IeC {\'e} ce stage pour le reste de ma carri\IeC {\`e}re}{17}{section.73}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{18}{appendix.74}
+\vspace {2em}
