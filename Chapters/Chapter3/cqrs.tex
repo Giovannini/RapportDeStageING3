@@ -1,18 +1,70 @@
 \section{CQRS: Command Query Responsibility Seggregation}
 \label{sec:CQRS: Command Query Responsibility Seggregation}
-Le pattern CQRS repose sur le principe de séparation entre l'écriture et la lecture de l'information.
-C'est un pattern que nous avons suivi lors du développement de l'espace recruteur puisque la séparations des composants de traitement (les "commands") et de restitution (les "queries") de l'information offrait une architecture très intéressante de laquelle nous avons tiré de nombreux bénéfices tels que la suppression du risque d'effets de bord ou l'allègement des classes de service.
-\subsection{Le pattern Command}
-\label{sub:Le pattern Command}
-Une commande représente une action destinée à être exécutée.
-Dans le cas de l'espace recruteur du site Cadremploi.fr, ces commandes ont pour but de stocker en base les événements altérant le système.
-Concrètement, ce pattern consiste à englober un appel de méthode dans un objet de type Command qui appelle un objet de type CommandHandler qui appelera lui la-dite méthode.
-Bien que cela augmente les lignes de code (il faut grossièrement 2 classes pour appeler une méthode), le code que propose le pattern Command est plus expressif, mieux découpé et simple à tester.
-\subsection{Le pattern Query}
-\label{sub:Le pattern Query}
+CQRS (Command and Query Responsibility Segregation)est un modèle d'acrhitecture plutôt récent dont le principe repose, comme son nom l'indique, sur la séparation entre l'écriture et la lecture de l'information.
+Le but de ce fonctionnement est notamment la production d'un système extensible, distribuable.
+Nous avons suivi lors du développement de l'espace recruteur ce pattern puisque la séparations des composants de traitement (les "commands") et de restitution (les "queries") de l'information offrait une architecture très intéressante de laquelle nous avons tiré de nombreux bénéfices tels que la suppression du risque d'effets de bord ou l'allègement des classes de service.
+
+%-------------------------------------------------------------------------
+\subsection{Organisation d'une application basée sur une telle architecture}
+Par opposition à une architecture du type 3 tiers, dont les services permettant d'accéder aux données se confondent avec ceux qui vont agir sur ces même données, l'architecture CQRS sépare volontairement les composantsrequêtant les données de ceux qui les modifient.
+Une telle séparation facilite l'organisation de l'application puisque des composants différents sont utilisés pour des actions différentes.
+De plus, elle permet de répartir plus facilement les charges dans le cas d'une infrastructure distribuée.
+
+%-------------------------------------------------------------------------
+\subsection{Explication détaillée}
+\label{sub:explication}
+%-------------------------------------------------------------------------
+\subsubsection{La couche de modification des données: Command}
+\label{subs:La couche de modification des données: Command}
+Cette couche concentre toutes les modifications des données, qu'il s'agisse de création, de suppression ou de mise à jour.
+Une commande représente une action destinée à être exécutée, une intention, et n'est pas une simple demande d'altération de donnée.
+En effet, on retrouve dans la commande la raison de la modification de la donnée.
+Dans le cas de l'espace recruteur du site Cadremploi.fr, ces commandes ont pour but d'enregistrer les altérations effectuées par les événements côté client, et on retrouve des commandes nommées 'ModifierDescriptionPosteCommand' ou 'PayerOffreCommand' par exemple.
+De tels noms sont ainsi très expressifs et permettent de clarifier la cause de la modification des données.
+%-------------------------------------------------------------------------
+\subsubsection{La couche de lecture des données: Query}
+\label{subs:La couche de lecture des données: Query}
 La partie Query de ce modèle se base sur le fait que les objets du modèle sont volumineux et qu'il est possible de s'en passer.
-En effet le besoin représenté ici est celui d'une lecture dans un cas d'utilisation bien précis.
+Cette couche fonctionne ainsi uniquement en lecture seule, aucune modification n'est apportée aux données.
+En effet le besoin représenté ici est celui d'une lecture dans un cas d'utilisation bien précis, l'objectif est d'aller extrêmement vite.
 Le pattern Query consiste alors à exécuter une requête précise en base et de restituer un objet DTO concis qui pourra être utilisé directement.
+Cela signifie que les contrôles sont réduits au minimum, mais cette méthode permet de récupérer seulement les données dont on a besoin en une fois, en se passant ainsi de parcourir plusieurs tables à travers desquelles les données seraient éparpillées.
 Le modèle CQRS de base peut s'avérer problématique puisque la grosse majorité des sollicitations du système se fait sur cette partie.
+%-------------------------------------------------------------------------
+\subsubsection{Le domaine}
+\label{subs:Le domaine}
+Le domaine est la zone où est concentré toute la connaissance métier de l'application.
+C'est de là que chaque commande est analysée et qu'il est décidé si l'on donne suite à chacune d'entre elle.
+On y trouve ainsi les différents objets permettant de pratiquer les contrôles nécessaires entre autre.
+
 % Pour le site Cadremploi, cette requête est une requête ElasticSearch et est donc extrêmement rapide.
 % La partie de Read de l'application se résume ainsi à la simple exécution d'une requête ES et au remplissage de DTO.
+%-------------------------------------------------------------------------
+\subsection{Implémentation}
+\label{sub:Implémentation}
+\subsubsection{Infrastructure}
+\label{subs:Infrastructure}
+L'utilisation de l'architecture CQRS est rendue possible grâce à plusieurs concepts tirés du Domain Driven Design (DDD).
+\paragraph{Les aggrégats}
+Il s'agit des objets sur lesquels agissent les commandes.
+Ce concept, que l'on trouve dans le Domain Driven Design, correspond à un groupe d'objets que l'on peut traiter comme une unité.
+Par exemple, l'aggregat 'Entreprise', que l'on retrouve dans l'espace recruteur de cadremploi.fr est constitué des objets 'NomEntreprise', 'AdresseFacturation' ou encore 'Logo'.
+\paragraph{Les repositories (ou dépôts)}
+Les différentes instances de cet aggrégat sont stockées dans un objet venu aussi du DDD, un repository (dépôt en français).
+Ces objets servent d'intermédiaires entre \ref(subs:Le domaine){le domaine} et la base de donnée, qui est pour l'espace recruteur une base PostgreSQL.
+On retrouve dans ces objets des méthodes du type 'create' permettant de créer une nouvelle instance d'un aggrégat ou 'save' qui permet de sauvegarder les changements relatifs à un aggrégat.
+\paragraph{Récupération des données}
+L'utilisation des repository via PostgreSQL est intéressante en écriture, mais ne permet pas une lecture intense et rapide.
+L'équipe Cadremploi utilise Elasticsearch de manière à pouvoir indexer ces données et ainsi pouvoir chercher et trier rapidement les données dont elle a besoin.
+C'est l'utilisation de cet outil qui permet d'exécuter des requêtes de manière extrêmement rapide.
+%-------------------------------------------------------------------------
+\subsubsection{Les commandes}
+\label{subs:Les commandes}
+L'utilisation du pattern Command est rendu possible grâce à plusieurs objets.
+Un exécuteur de commande ("CommandExecutor") expose une méthode permettant d'exécuter une commande donnée.
+Cet exécuteur se charge de
+\begin{itemize}
+  \item retrouver l'aggrégat visé par la commande s'il existe
+  \item vérifier que l'auteur de l'action est autorisé à l'effectuer
+  \item récupérer le CommandHandler associé à la commande, c'est à dire l'objet responsable de traiter la commande reçue
+\end{itemize}
