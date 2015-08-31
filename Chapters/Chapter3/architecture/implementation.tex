@@ -1,0 +1,34 @@
+% Pour le site Cadremploi, cette requête est une requête ElasticSearch et est donc extrêmement rapide.
+% La partie de Read de l'application se résume ainsi à la simple exécution d'une requête ES et au remplissage de DTO.
+%-------------------------------------------------------------------------
+\subsection{Implémentation}
+\label{sub:Implémentation}
+\subsubsection{Infrastructure}
+\label{subs:Infrastructure}
+L'utilisation de l'architecture CQRS est rendue possible grâce à plusieurs concepts tirés du Domain Driven Design (DDD).
+\paragraph{Les aggrégats}
+Il s'agit des objets sur lesquels agissent les commandes.
+Ce concept, que l'on trouve dans le Domain Driven Design, correspond à un groupe d'objets que l'on peut traiter comme une unité.
+Par exemple, l'aggregat 'Entreprise', que l'on retrouve dans l'espace recruteur de cadremploi.fr est constitué des objets 'NomEntreprise', 'AdresseFacturation' ou encore 'Logo'.
+\paragraph{Les repositories (ou dépôts)}
+Les différentes instances de cet aggrégat sont stockées dans un objet venu aussi du DDD, un repository (dépôt en français).
+Ces objets servent d'intermédiaires entre \ref(subs:Le domaine){le domaine} et la base de donnée, qui est pour l'espace recruteur une base PostgreSQL.
+On retrouve dans ces objets des méthodes du type 'create' permettant de créer une nouvelle instance d'un aggrégat ou 'save' qui permet de sauvegarder les changements relatifs à un aggrégat.
+\paragraph{Récupération des données}
+L'utilisation des repository via PostgreSQL est intéressante en écriture, mais ne permet pas une lecture intense et rapide.
+L'équipe Cadremploi utilise Elasticsearch de manière à pouvoir indexer ces données et ainsi pouvoir chercher et trier rapidement les données dont elle a besoin.
+C'est l'utilisation de cet outil qui permet d'exécuter des requêtes de manière extrêmement rapide.
+%-------------------------------------------------------------------------
+\subsubsection{Les commandes}
+\label{subs:Les commandes}
+L'utilisation du pattern Command est rendu possible grâce à plusieurs objets.
+Un exécuteur de commande ("CommandExecutor") expose une méthode permettant d'exécuter une commande donnée.
+Cet exécuteur se charge de
+\begin{itemize}
+  \item retrouver l'aggrégat visé par la commande s'il existe
+  \item vérifier que l'auteur de l'action est autorisé à l'effectuer
+  \item récupérer le CommandHandler associé à la commande, c'est à dire l'objet responsable de traiter la commande reçue
+\end{itemize}
+
+
+% parler des technos avant peut être (Akka, Angular, ...)
