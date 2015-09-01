@@ -3,9 +3,11 @@
 %-------------------------------------------------------------------------
 \subsection{Implémentation}
 \label{sub:Implémentation}
+L'équipe Cadremploi a été en mesure de mettre en place cette architecture particulièrement intéressante en se basant sur plusieurs concepts tirés du Domain Driven Design (DDD) ainsi qu'à l'utilisation de technologies récentes.
+
 \subsubsection{Infrastructure}
 \label{subs:Infrastructure}
-L'utilisation de l'architecture CQRS est rendue possible grâce à plusieurs concepts tirés du Domain Driven Design (DDD).
+L'utilisation de l'architecture CQRS est rendue possible grâce à plusieurs concepts tirés du Domain Driven Design (DDD) ainsi qu'à l'utilisation de technologies récentes.
 \paragraph{Les aggrégats}
 Il s'agit des objets sur lesquels agissent les commandes.
 Ce concept, que l'on trouve dans le Domain Driven Design, correspond à un groupe d'objets que l'on peut traiter comme une unité.
@@ -32,3 +34,8 @@ Cet exécuteur se charge de
 
 
 % parler des technos avant peut être (Akka, Angular, ...)
+\paragraph{} % Mettre cette partie dans la section "implementation"?
+Un des points à noter ici est que contrairement à la couche de modification des données, cette couche ne nécessite pas une mise à jour immédiate.
+En effet, lorsqu'un utilisateur modifie le système, il a besoin d'un retour immédiat l'informant que son action a bien été prise en compte.
+Néanmoins il peut accepter qu'un délai ait lieu avant la prise en compte à l'affichage de sont action.
+On peut ainsi, pour offrir plus de confort à l'utilisateur, il est possible d'user d'asynchronisme et rendre la partie en lecture de notre application cohérente "plus tard" (généralement quelques millisecondes plus tard
