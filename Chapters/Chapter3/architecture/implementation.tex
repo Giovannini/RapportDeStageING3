@@ -3,33 +3,69 @@
 %-------------------------------------------------------------------------
 \subsection{Implémentation}
 \label{sub:Implémentation}
-L'équipe Cadremploi a été en mesure de mettre en place cette architecture particulièrement intéressante en se basant sur plusieurs concepts tirés du Domain Driven Design (DDD) ainsi qu'à l'utilisation de technologies récentes.
-
-\subsubsection{Infrastructure}
-\label{subs:Infrastructure}
+L'équipe Cadremploi a été en mesure de mettre en place cette architecture particulièrement intéressante dans le projet espace recruteur en se basant sur plusieurs concepts tirés du Domain Driven Design (DDD) et en utilisant diverses technologies récentes.
+En effet, l'utilisation des acteurs Akka a permi une gestion confortable et performante des événements que je traiterai dans les parties suivantes et l'utilisation d'ElasticSearch a offert une rapidité en lecture importante.
 L'utilisation de l'architecture CQRS est rendue possible grâce à plusieurs concepts tirés du Domain Driven Design (DDD) ainsi qu'à l'utilisation de technologies récentes.
-\paragraph{Les aggrégats}
-Il s'agit des objets sur lesquels agissent les commandes.
-Ce concept, que l'on trouve dans le Domain Driven Design, correspond à un groupe d'objets que l'on peut traiter comme une unité.
-Par exemple, l'aggregat 'Entreprise', que l'on retrouve dans l'espace recruteur de cadremploi.fr est constitué des objets 'NomEntreprise', 'AdresseFacturation' ou encore 'Logo'.
-\paragraph{Les repositories (ou dépôts)}
-Les différentes instances de cet aggrégat sont stockées dans un objet venu aussi du DDD, un repository (dépôt en français).
-Ces objets servent d'intermédiaires entre \ref(subs:Le domaine){le domaine} et la base de donnée, qui est pour l'espace recruteur une base PostgreSQL.
-On retrouve dans ces objets des méthodes du type 'create' permettant de créer une nouvelle instance d'un aggrégat ou 'save' qui permet de sauvegarder les changements relatifs à un aggrégat.
-\paragraph{Récupération des données}
-L'utilisation des repository via PostgreSQL est intéressante en écriture, mais ne permet pas une lecture intense et rapide.
-L'équipe Cadremploi utilise Elasticsearch de manière à pouvoir indexer ces données et ainsi pouvoir chercher et trier rapidement les données dont elle a besoin.
-C'est l'utilisation de cet outil qui permet d'exécuter des requêtes de manière extrêmement rapide.
+
+%-------------------------------------------------------------------------
+\subsubsection{La séparation effective de la lecture et de l'écriture}
+\label{subs:La séparation effective de la lecture et de l'écriture}
+L'espace recruteur utilise deux moyens différents pour accéder à la donnée en lecture et en écriture.
+Cela permet l'utilisation de technologies dédiées et donc plus performantes pour chaque type d'action.
+\paragraph{L'écriture}
+\label{par:L'écriture}
+Les données sont stockées dans une base de données PostgreSQL et toute la partie écriture de l'application se fait sur cette base.
+Cette base n'est consultée en lecture qu'au démarrage de l'application et toute autre utilisation, sauf exception, n'est faite qu'en lecture.
+De plus, l'utilisation d'event sourcing demande d'exécuter cette écriture uniquement en ajout (append only) puisque tout événement est conservé puisqu'il fait partie de l'histoire de l'application.
+C'est grâce à cette certification que la partie lecture de l'application peut se faire de manière totalement séparée.
+\paragraph{La lecture}
+\label{par:La lecture}
+Les données disponibles en lecture le sont depuis un index ElsaticSearch qui est mis en place au démarrage de l'application.
+%%TODO choix elasticsearch
+Cet index est mis à jour de manière asynchrone à la réception d'une intention de l'utilisateur.
+On accepte ainsi un léger décalage entre le temps d'exécution de la commande et la mise à jour de la partie lecture.
+En effet, l'utilisateur a besoin d'agir avec le système de manière la plus synchrone possible, dans le sens où un feedback immédiat est nécessaire pour assurer que chaque action opérée a bien été prise en compte.
+Il est alors envisageable d'accepter de rendre la partie lecture du système cohérentes quelques millisecondes plus tard seulmement pour maximiser cette réactivité du système.
+Concrètement, cela signifie, par exemple, que lors de la modification de son adresse email, l'ancienne peut encore être affiché pendant quelques instants quand l'utilisateur sait que son action a bien été prise en compte.
+
 %-------------------------------------------------------------------------
 \subsubsection{Les commandes}
 \label{subs:Les commandes}
+Dans l'espace recruteur de Cadremploi, une commande représente une action venant de l'utilisateur visant à modifier les données le concernant.
+Cela peut s'agir de son profil utilisateur, des entreprises qu'il gère ou bien des annonces qu'il a écrites.
+\paragraph{L'interface}
+\label{par:L'interface}
+%%TODO image d'un champ rempli, de la requête Json générée et de l'envoi à l'application
+L'interface de l'espace recruteur est pensée de sorte à ce que le recruteur qui l'utilise envoit des commandes à l'application de manière transparente.
+En effet, à chaque champ du formulaire rempli, une requête Ajax contenant les informations relatives à la modification est envoyée à l'application.
+Concrètement, on utilise un élément d'AngularJS permettant d'enregistrer un callback à exécuter lorsqu'une expression ciblée est modifiée.
+Cet élément est appelé watcher.
+Cette technologie permet des appels asynchrones à la fonction de callback.
+Généralement, cette fonction effectue des vérifications côté client de la saisie du client avant de générer un appel REST de type POST à destination de l'espace recruteur.
+Cet appel sera interprété et traduit en une commande que l'on tentera d'exécuter.
+\paragraph{Backend}
+\label{par:Backend}
 L'utilisation du pattern Command est rendu possible grâce à plusieurs objets.
-Un exécuteur de commande ("CommandExecutor") expose une méthode permettant d'exécuter une commande donnée.
-Cet exécuteur se charge de
+\subparagraph{Les objets Command}
+\label{subp:Les objets Command}
+Comme expliqué précédemment, une commande est un appel de méthode encapsulé dans un objet.
+L'équipe Cadremploi a choisi de décorréler l'exécution de l'action et la description de l'intention de l'utilisateur.
+Concrètement, cela signifie qu'une classe se charge de la définition de la commande, tandis qu'une seconde traitera l'exécution de l'action.
+%%TODO schéma UML de la séparation Command/CommandHandler
+Ce découpage en Command et CommandHandler est légèrement plus verbeux, mais permet néanmoins de réduire la taille des classes que nous écrivons et offre la possibilité d'un traitement asynchrone.
+En effet, on peut imaginer placer les commandes sur une queue qui sera traitée par les CommandHandlers dès que la ressource nécessaire à leur exécution se trouve disponible.
+Une logique similaire qui n'est pas encore exploitée par Cadremploi serait d'envisager un mode déconnecté puisqu'il est possible d'exécuter des commandes en local qui seront envoyés sur le serveur et donc traitées effectivement dès que la connexion est récupérée.
+
+\subparagraph{Le command executor}
+\label{subp:Le command executor}
+Un exécuteur de commande (ou "CommandExecutor") est une entitée créée pour être utilisée à l'exécution de chaque commande.
+Cette classe expose une méthode permettant d'exécuter une commande donnée.
+Cet exécuteur se charge de:
 \begin{itemize}
   \item retrouver l'aggrégat visé par la commande s'il existe
   \item vérifier que l'auteur de l'action est autorisé à l'effectuer
-  \item récupérer le CommandHandler associé à la commande, c'est à dire l'objet responsable de traiter la commande reçue
+  \item récupérer le CommandHandler associé à la commande
+  \item
 \end{itemize}
 
 
