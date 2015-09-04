@@ -3,30 +3,47 @@
 %-------------------------------------------------------------------------
 \subsection{Implémentation}
 \label{sub:Implémentation}
-L'équipe Cadremploi a été en mesure de mettre en place cette architecture particulièrement intéressante dans le projet espace recruteur en se basant sur plusieurs concepts tirés du Domain Driven Design (DDD) et en utilisant diverses technologies récentes.
-En effet, l'utilisation des acteurs Akka a permi une gestion confortable et performante des événements que je traiterai dans les parties suivantes et l'utilisation d'ElasticSearch a offert une rapidité en lecture importante.
-L'utilisation de l'architecture CQRS est rendue possible grâce à plusieurs concepts tirés du Domain Driven Design (DDD) ainsi qu'à l'utilisation de technologies récentes.
+L'équipe Cadremploi a été en mesure de mettre en place cette architecture particulièrement intéressante dans le projet Espace Recruteur en se basant sur plusieurs concepts tirés du Domain Driven Design (DDD) et en utilisant diverses technologies récentes.
+Notamment, l'utilisation des acteurs Akka a permi une gestion confortable et performante des événements que je traiterai dans les parties suivantes et l'utilisation d'ElasticSearch a offert une rapidité en lecture importante.
 
 %-------------------------------------------------------------------------
 \subsubsection{La séparation effective de la lecture et de l'écriture}
 \label{subs:La séparation effective de la lecture et de l'écriture}
 L'espace recruteur utilise deux moyens différents pour accéder à la donnée en lecture et en écriture.
-Cela permet l'utilisation de technologies dédiées et donc plus performantes pour chaque type d'action.
+En effet, les données reçues des commandes sont stockées dans une base PostreSQL sous forme d'événements tandis que les données utilisées en lecture sont accessibles via un index ElasticSearch.
+Cette utilisation de technologies dédiées est ainsi bien plus performant pour chaque type d'action.
 \paragraph{L'écriture}
 \label{par:L'écriture}
-Les données sont stockées dans une base de données PostgreSQL et toute la partie écriture de l'application se fait sur cette base.
-Cette base n'est consultée en lecture qu'au démarrage de l'application et toute autre utilisation, sauf exception, n'est faite qu'en lecture.
-De plus, l'utilisation d'event sourcing demande d'exécuter cette écriture uniquement en ajout (append only) puisque tout événement est conservé puisqu'il fait partie de l'histoire de l'application.
-C'est grâce à cette certification que la partie lecture de l'application peut se faire de manière totalement séparée.
+Les données sont stockées sous forme d'événements dans une base de données PostgreSQL et toute la partie écriture de l'application se fait sur cette base.
+Elle n'est consultée en lecture qu'au démarrage de l'application et toute autre utilisation, sauf exception, n'est faite qu'en écriture.
+Plus qu'en écriture seule, les données ne peuvent être qu'insérées (append only), c'est à dire que les données déjà présente ne sont jamais modifiées.
+Une ligne de cette base contient ainsi la donnée relative à un événement, la date d'application de cet événement sur le système ainsi que l'identifiant de l'aggrégat sur lequel s'applique l'événement.
+L'idée fondamentale de l'Event Sourcing est qu'en enregistrant chaque événements occurant sur un système, on peut retrouver l'état de ce système à tout instant; cette base est finalement une liste de tous les événements ayant eu lieu depuis le démarrage de l'application.
+\subparagraph{Cohérence de la base}
+Comme expliqué précédemment, plusieurs contrôles sont effectués avant la validation d'une commande pour assurer la validité de l'information insérée et donc la cohérence de la base.
+En effet, cette "liste d'événement" est la base de l'application de l'Espace Recruteur et l'information qui y est présente est utilisée pour construire/reconstruire l'application.
+Une corruption de la donnée qui y est présente n'est donc pas envisageable.
+Ce type de stockage est néanmoins extrêmement rapide, ce qui nous intéresse du point de vue des commandes puisqu'on essaye de donner à l'utilisateur un retour quasi immédiat sur son action.
+\subparagraph{Migration des événements}
+Evidemment, l'application Espace Recruteur est vouée à changer au cours du temps et des modifications y seront apportées.
+Ainsi, il est quasiment certain que les événements existant aujourd'hui seront modifiés, enrichis voire même supprimés pour certain, et qu'ils ne peuvent donc rester totalement statique en base.
+J'ai ainsi travaillé sur un outil de migration des événements de cette base dans le cas d'une modification de la sorte.
+La migration des événements contenus dans la base est nécessaire de manière à ne pas figer le comportement de l'application ni devoir être gêné continuellement par des comportements obsolètes dans le futur.
+Il s'agit donc d'une nuance à la non-modification des données de cette base.
+\subparagraph{}
+L'utilisation d'une base PostgreSQL en append only permet la réalisation de l'Event Sourcing
+
 \paragraph{La lecture}
 \label{par:La lecture}
-Les données disponibles en lecture le sont depuis un index ElsaticSearch qui est mis en place au démarrage de l'application.
-%%TODO choix elasticsearch
+Les données disponibles en lecture le sont depuis un index ElasticSearch qui est mis en place au démarrage de l'application.
+ElasticSearch est un moteur de recherche open source qui permet de disposer en quelques minutes seulement d'un moteur de recherche clusterisé, automatiquement sauvegardé et répliqué et interrogeable via une API REST.
 Cet index est mis à jour de manière asynchrone à la réception d'une intention de l'utilisateur.
-On accepte ainsi un léger décalage entre le temps d'exécution de la commande et la mise à jour de la partie lecture.
 En effet, l'utilisateur a besoin d'agir avec le système de manière la plus synchrone possible, dans le sens où un feedback immédiat est nécessaire pour assurer que chaque action opérée a bien été prise en compte.
-Il est alors envisageable d'accepter de rendre la partie lecture du système cohérentes quelques millisecondes plus tard seulmement pour maximiser cette réactivité du système.
+Il est alors envisageable d'accepter de rendre la partie lecture du système cohérentes quelques millisecondes plus tard seulement pour maximiser cette réactivité du système.
+On accepte ainsi un léger décalage entre le temps d'exécution de la commande et la mise à jour de la partie lecture.
 Concrètement, cela signifie, par exemple, que lors de la modification de son adresse email, l'ancienne peut encore être affiché pendant quelques instants quand l'utilisateur sait que son action a bien été prise en compte.
+\paragraph{}
+En somme, les parties d'écriture et de lecture sont physiquement séparées dans l'application Espace Recruteur de Cadremploi
 
 %-------------------------------------------------------------------------
 \subsubsection{Les commandes}
