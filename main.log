@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  1 SEP 2015 16:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  7 SEP 2015 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -873,7 +873,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 14.
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `par:Backend' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -894,8 +898,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 17.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 17.
@@ -1134,37 +1137,51 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 3.
 
 
-<Figures/Chapter3/architecture/tiersvscqrs.png, id=570, 893.3375pt x 394.47375p
+<Figures/Chapter3/architecture/tiersvscqrs.png, id=710, 893.3375pt x 394.47375p
 t>
 File: Figures/Chapter3/architecture/tiersvscqrs.png Graphic file (type png)
  <use Figures/Chapter3/architecture/tiersvscqrs.png>
 Package pdftex.def Info: Figures/Chapter3/architecture/tiersvscqrs.png used on 
 input line 11.
-(pdftex.def)             Requested size: 446.66765pt x 197.23639pt.
+(pdftex.def)             Requested size: 357.32866pt x 157.7867pt.
+ [16]
 
-Overfull \hbox (42.94292pt too wide) in paragraph at lines 11--15
- [] [][] []
+LaTeX Warning: Reference `subs:Le domaine' on page 17 undefined on input line 3
+3.
+
+[17 <./Figures/Chapter3/architecture/tiersvscqrs.png>]
+
+LaTeX Warning: Reference `(' on page 18 undefined on input line 62.
+
+[18]) (./Chapters/Chapter3/architecture/implementation.tex [19] [20] [21]
+Overfull \hbox (19.25847pt too wide) in paragraph at lines 98--105
+ []\T1/lmr/bx/n/10.95 Les ob-jets Com-mand [][] \T1/lmr/m/n/10.95 Comme ex-pliq
+ué précédem-ment, l'équipe Cadrem-ploi a représenté
  []
 
-[16] [17 <./Figures/Chapter3/architecture/tiersvscqrs.png>])
-(./Chapters/Chapter3/architecture/implementation.tex [18]
+[22]
 
-LaTeX Warning: Reference `(' on page 19 undefined on input line 15.
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 132.
 
-)) (./Chapters/Chapter3/eventSourcing.tex [19]) [20]) (./Chapters/Chapter4.tex
-[21]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 134.
+
+[23])) (./Chapters/Chapter3/eventSourcing.tex [24]) [25])
+(./Chapters/Chapter4.tex [26]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Le stage dans ma formation
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [22
+) (./Appendices/AppendixA.tex [27
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [23
+) [28
 
 ]
 ------------------------------------------------------------------------------
@@ -1176,99 +1193,39 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 228.
 (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 228.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 228.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 6B9B0FE6CD231E77C6126094B754BB92;20579.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 6BFEFB1E48C335A8A1AF907F44919E81;17159
-(rerunfilecheck)             After:  254DD9CAD64599DF61F39E6B1B66BF5B;17464.
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 228.
  ) 
 Here is how much of TeX's memory you used:
- 13843 strings out of 495003
- 195880 string characters out of 6180449
- 259135 words of memory out of 5000000
- 16656 multiletter control sequences out of 15000+600000
+ 13902 strings out of 495003
+ 196857 string characters out of 6180449
+ 260180 words of memory out of 5000000
+ 16703 multiletter control sequences out of 15000+600000
  74332 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,12n,45p,669b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{appendix.93} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.90} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.88} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.87} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.86} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.85} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.84} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.83} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.82} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.81} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.80} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.79} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.78} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.77} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.75} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.74} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.73} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsubsection.71} has been referenced but does not 
-exist, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvi
-ps/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texm
-f/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-math
-it.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmsy8.pfb>
-Output written on main.pdf (34 pages, 390636 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
+vips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/te
+xmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
+thit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/
+lm/lmsy8.pfb>
+Output written on main.pdf (39 pages, 420711 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
- 702 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 846 PDF objects out of 1000 (max. 8388607)
+ 161 named destinations out of 1000 (max. 500000)
+ 926 words of extra memory for PDF output out of 10000 (max. 10000000)
 

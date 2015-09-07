@@ -15,10 +15,10 @@ Cette utilisation de technologies dédiées est ainsi bien plus performant pour 
 \paragraph{L'écriture}
 \label{par:L'écriture}
 Les données sont stockées sous forme d'événements dans une base de données PostgreSQL et toute la partie écriture de l'application se fait sur cette base.
-Elle n'est consultée en lecture qu'au démarrage de l'application et toute autre utilisation, sauf exception, n'est faite qu'en écriture.
-Plus qu'en écriture seule, les données ne peuvent être qu'insérées (append only), c'est à dire que les données déjà présente ne sont jamais modifiées.
+Les données ne peuvent y être qu'insérées (append only), c'est à dire que les données déjà présente ne sont jamais modifiées.
 Une ligne de cette base contient ainsi la donnée relative à un événement, la date d'application de cet événement sur le système ainsi que l'identifiant de l'aggrégat sur lequel s'applique l'événement.
-L'idée fondamentale de l'Event Sourcing est qu'en enregistrant chaque événements occurant sur un système, on peut retrouver l'état de ce système à tout instant; cette base est finalement une liste de tous les événements ayant eu lieu depuis le démarrage de l'application.
+C'est ainsi sur cette base que repose la structure d'Event Sourcing de notre application.
+En effet, l'idée fondamentale de l'Event Sourcing est qu'en enregistrant chaque événements survenant sur un système, on peut retrouver l'état de ce système à tout instant; cette base est finalement une liste de tous les événements ayant eu lieu depuis le démarrage de l'application.
 \subparagraph{Cohérence de la base}
 Comme expliqué précédemment, plusieurs contrôles sont effectués avant la validation d'une commande pour assurer la validité de l'information insérée et donc la cohérence de la base.
 En effet, cette "liste d'événement" est la base de l'application de l'Espace Recruteur et l'information qui y est présente est utilisée pour construire/reconstruire l'application.
@@ -26,10 +26,10 @@ Une corruption de la donnée qui y est présente n'est donc pas envisageable.
 Ce type de stockage est néanmoins extrêmement rapide, ce qui nous intéresse du point de vue des commandes puisqu'on essaye de donner à l'utilisateur un retour quasi immédiat sur son action.
 \subparagraph{Migration des événements}
 Evidemment, l'application Espace Recruteur est vouée à changer au cours du temps et des modifications y seront apportées.
-Ainsi, il est quasiment certain que les événements existant aujourd'hui seront modifiés, enrichis voire même supprimés pour certain, et qu'ils ne peuvent donc rester totalement statique en base.
+Il est quasiment certain que les événements existant aujourd'hui seront modifiés, enrichis voire même supprimés pour certain, et qu'ils ne peuvent donc rester totalement statique en base.
 J'ai ainsi travaillé sur un outil de migration des événements de cette base dans le cas d'une modification de la sorte.
 La migration des événements contenus dans la base est nécessaire de manière à ne pas figer le comportement de l'application ni devoir être gêné continuellement par des comportements obsolètes dans le futur.
-Il s'agit donc d'une nuance à la non-modification des données de cette base.
+Il s'agit donc de la seule nuance à la non-modification des données de cette base.
 \subparagraph{}
 L'utilisation d'une base PostgreSQL en append only permet la réalisation de l'Event Sourcing
 
@@ -37,13 +37,34 @@ L'utilisation d'une base PostgreSQL en append only permet la réalisation de l'E
 \label{par:La lecture}
 Les données disponibles en lecture le sont depuis un index ElasticSearch qui est mis en place au démarrage de l'application.
 ElasticSearch est un moteur de recherche open source qui permet de disposer en quelques minutes seulement d'un moteur de recherche clusterisé, automatiquement sauvegardé et répliqué et interrogeable via une API REST.
+\subparagraph{}
 Cet index est mis à jour de manière asynchrone à la réception d'une intention de l'utilisateur.
-En effet, l'utilisateur a besoin d'agir avec le système de manière la plus synchrone possible, dans le sens où un feedback immédiat est nécessaire pour assurer que chaque action opérée a bien été prise en compte.
-Il est alors envisageable d'accepter de rendre la partie lecture du système cohérentes quelques millisecondes plus tard seulement pour maximiser cette réactivité du système.
-On accepte ainsi un léger décalage entre le temps d'exécution de la commande et la mise à jour de la partie lecture.
-Concrètement, cela signifie, par exemple, que lors de la modification de son adresse email, l'ancienne peut encore être affiché pendant quelques instants quand l'utilisateur sait que son action a bien été prise en compte.
+Parallèlement à l'ajout d'un événement en base de donnée, un message Akka est envoyé sur un bus et sera utilisé pour mettre à jour l'index ElasticSearch.
+Ainsi, les données présentes dans cet index sont constamment mises à jour de manière à rester consistantes avec les données présentes dans la base de données PostgreSQL sans avoir pour autant à l'interroger.
+De plus, cette mise à jour asynchrone permet de garantir au recruteur une interaction la plus synchrone possible avec l'application:
+un feedback immédiat lui est envoyé lorsqu'il exécute une action puisque la mise à jour de l'index n'est pas bloquante.
+
 \paragraph{}
-En somme, les parties d'écriture et de lecture sont physiquement séparées dans l'application Espace Recruteur de Cadremploi
+En somme, les parties d'écriture et de lecture sont physiquement séparées dans l'application Espace Recruteur de Cadremploi.
+
+\subsubsection{Bus d'événements: Kafka}
+\label{subs:Bus d'événements: Kafka}
+Kafka est un service offrant la fonction de système de message partitionné et répliqué.
+Il permet un traitement en temps réel de la donnée mais offre aussi la possibilité de gérer des files d'attentes entre autres.
+\paragraph{Vocabulaire}
+\label{par:Vocabulaire}
+Les données du cluster Kafka sont stockées dans divers "topics".
+Les entités publiant des messages dans un topic Kafka sont appelés "producteurs".
+Celles qui souscrivent aux topics et lisent les flux sont appelés "consommateurs".
+\paragraph{Utilisation}
+\label{par:Utilisation}
+Sans détailler le fonctionnement intrinsèque de Kafka, retenons qu'à plus haut niveau, des producteurs envoient des messages dans le cluster Kafka via le réseau et ce dernier les envoit à son tour aux consommateurs.
+%%TODO image
+Kafka est utilisé pour la communication entre l'Espace Recruteur, le Backoffice et divers autres services au sein de FIGARO CLASSIFIEDS.
+C'est notamment via ce service que les événements sont envoyés depuis la couche Command à la couche Query: ici, le producteur de message est le CommandExecutor tandis que les projections sont les consommateurs.
+La vitesse de transmission que propose Kafka permet de traiter la donnée en temps réel.
+
+
 
 %-------------------------------------------------------------------------
 \subsubsection{Les commandes}
@@ -53,20 +74,29 @@ Cela peut s'agir de son profil utilisateur, des entreprises qu'il gère ou bien 
 \paragraph{L'interface}
 \label{par:L'interface}
 %%TODO image d'un champ rempli, de la requête Json générée et de l'envoi à l'application
+\subparagraph{Envoi d'une commande}
+\label{subp:Envoi d'une commande}
 L'interface de l'espace recruteur est pensée de sorte à ce que le recruteur qui l'utilise envoit des commandes à l'application de manière transparente.
-En effet, à chaque champ du formulaire rempli, une requête Ajax contenant les informations relatives à la modification est envoyée à l'application.
-Concrètement, on utilise un élément d'AngularJS permettant d'enregistrer un callback à exécuter lorsqu'une expression ciblée est modifiée.
-Cet élément est appelé watcher.
-Cette technologie permet des appels asynchrones à la fonction de callback.
-Généralement, cette fonction effectue des vérifications côté client de la saisie du client avant de générer un appel REST de type POST à destination de l'espace recruteur.
+En effet, à chaque champ du formulaire rempli, une requête Ajax contenant les informations relatives à la modification effectuée est envoyée à l'application.
+Concrètement, on utilise un élément d'AngularJS appelé watcher permettant d'enregistrer un callback à exécuter lorsqu'une expression ciblée est modifiée.
+Cette technologie permet des appels asynchrones à la fonction de callback et offre donc une fluidité d'utilisation à l'application.
+Généralement, cette fonction effectue des vérifications côté client de la saisie du recruteur avant de générer un appel REST de type POST à destination du serveur de l'application.
 Cet appel sera interprété et traduit en une commande que l'on tentera d'exécuter.
+\subparagraph{Réception de la réponse}
+\label{subp:Réception de la réponse}
+La réponse retournée par le serveur après une requête REST permet d'informer le client de la bonne réception de son action.
+Lors de la saisie d'une offre, une bulle d'information est affichée uniquement si la réception s'est mal passée puisqu'on ne souhaite pas bombarder le client d'information.
+%%TODO image
+L'information sur le retour est affichée dans tous les cas quand la modification concerne le profil de l'utilisateur.
+Ce retour est très rapide puisque le gros du traitement côté serveur, est fait de manière asynchrone.
+
 \paragraph{Backend}
 \label{par:Backend}
 L'utilisation du pattern Command est rendu possible grâce à plusieurs objets.
 \subparagraph{Les objets Command}
 \label{subp:Les objets Command}
-Comme expliqué précédemment, une commande est un appel de méthode encapsulé dans un objet.
-L'équipe Cadremploi a choisi de décorréler l'exécution de l'action et la description de l'intention de l'utilisateur.
+Comme expliqué précédemment, l'équipe Cadremploi a représenté une commande est un appel de méthode encapsulé dans un objet.
+Nous avons choisi de décorréler l'exécution de l'action et la description de l'intention de l'utilisateur.
 Concrètement, cela signifie qu'une classe se charge de la définition de la commande, tandis qu'une seconde traitera l'exécution de l'action.
 %%TODO schéma UML de la séparation Command/CommandHandler
 Ce découpage en Command et CommandHandler est légèrement plus verbeux, mais permet néanmoins de réduire la taille des classes que nous écrivons et offre la possibilité d'un traitement asynchrone.
@@ -81,14 +111,41 @@ Cet exécuteur se charge de:
 \begin{itemize}
   \item retrouver l'aggrégat visé par la commande s'il existe
   \item vérifier que l'auteur de l'action est autorisé à l'effectuer
-  \item récupérer le CommandHandler associé à la commande
-  \item
+  \item récupérer le CommandHandler associé à la commande et appliquer son effet
+  \item enregistrer les événements générés en base
 \end{itemize}
+Si une erreur survient lors de l'exécution d'une commande par le CommandExecutor, elle est utilisée pour informer le front directement.
+Autrement, l'aggrégat résultat de la modification opérée par l'utilisateur est retourné.
+Cette valeur de retour est la seule exception au pattern CQRS opéré par l'équipe Cadremploi.
+En effet, il existe des cas où il est nécessaire pour le backend de se tenir au courant de la mise à jour directement après l'exécution d'une commande.
+Le pattern CQRS recommande d'exécuter une query pour se faire, mais la mise à jour de l'index n'étant pas synchrone mais asynchrone, comme mentionné précédemment, cela peut poser des problèmes.
+Des contraintes techniques ont donc obligé l'utilisation de cette valeur de retour.
 
 
-% parler des technos avant peut être (Akka, Angular, ...)
-\paragraph{} % Mettre cette partie dans la section "implementation"?
-Un des points à noter ici est que contrairement à la couche de modification des données, cette couche ne nécessite pas une mise à jour immédiate.
-En effet, lorsqu'un utilisateur modifie le système, il a besoin d'un retour immédiat l'informant que son action a bien été prise en compte.
-Néanmoins il peut accepter qu'un délai ait lieu avant la prise en compte à l'affichage de sont action.
-On peut ainsi, pour offrir plus de confort à l'utilisateur, il est possible d'user d'asynchronisme et rendre la partie en lecture de notre application cohérente "plus tard" (généralement quelques millisecondes plus tard
+\subsection{Les Queries}
+\label{sub:Les Queries}
+Une query est un objet permettant à l'utilisateur de requêter de la donnée provenant du serveur.
+Chaque information provenant de son profil ou de ses annonces provient d'une query.
+
+\paragraph{Backend}
+\label{par:Backend}
+\subparagraph{Projections}
+\label{subp:Projections}
+Les projections sont des objets permettant de dériver un état d'un flux d'événements.
+Dans l'Espace Recruteur, elles écoutent dans le bus des événements particuliers et mettent à jour en fonction l'index ElasticSearch.
+La transmission des messages étant rapide via Kafka, les projections sont cohérente à quelques millisecondes près avec la partie de lecture.
+Ce décalage est peu contraignant: la gestion des projections étant faite de manière asynchrone, on peut toujours assurer au recruteur un feedback rapide.
+C'est pour maximisercette réactivité que l'on accepte de rendre cohérente la couche Query de notre application plus tard.
+\subparagraph{Les objets query}
+\label{subp:Les objets query}
+De même que les commandes, les queries sont aussi des actions encapsulées dans des objets dans l'Espace Recruteur.
+Elles sont pour leur part découpées en 3 objets différents:
+\begin{itemize}
+  \item Query qui est la définition de la requête, il s'agit généralement d'un objet vide, uniquement caractérisé par son nom qui est, tout comme la commande, très explicite.
+  \item QueryResult, qui est un conteneur pour le résultat de la requête.
+  Il s'agit donc d'une classe contenant un ou plusieurs objets.
+  \item QueryHandler, qui tout comme les CommandHandler, sont des objets qui contiennent la méthode d'application de la requête.
+  Il s'agit d'une méthode requêtant un index ElasticSearch directement et encapsulant son résultat dans un objet QueryResult.
+  Nous avons en effet vu que les données contenus dans les indexes sont utilisable directement et qu'aucun contrôle n'est fait.
+\end{itemize}
+Le résultat des queries est sérialisé puis directement envoyé au front.

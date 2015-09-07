@@ -17,21 +17,21 @@ Il me semble important, avant de détailler le contenu des différentes couches 
 
 \subsubsection{Les concepts tirés du Domain Driven Design}
 \label{subs:Les concepts tirés du Domain Driven Design}
-\subparagraph{Les aggrégats}
-\label{subp:Les aggrégats}
-Un aggrégat est un objet modifiable lors d'une transaction.
-Il est généralement repésenté par un classe unique possédant un identifiant unique dans toute l'application mais on peut aussi trouver des représentations d'aggrégats via plusieurs classes.
-Dans ce second cas, une d'entre elle est dite classe racine ("root class") et tout accès à l'aggrégat par l'extérieur se fait via cette classe et toutes les autres restent interne à l'agrégat.
-Ces classes contiennent la logique du \ref(subs:Le domaine){domaine} et permettent d'effectuer des contrôles.
-\subparagraph{Les repositories (ou dépôts)}
-\label{subp:Les repositories (ou dépôts)}
-Les différentes instances des aggrégats sont stockées dans un objet appelé repository (dépôt en français).
-Ces objets servent d'intermédiaires entre \ref(subs:Le domaine){le domaine} et la base de donnée.
-On retrouve dans ces objets des méthodes du type 'create' permettant de créer une nouvelle instance d'un aggrégat ou 'save' qui permet de sauvegarder les changements relatifs à un aggrégat.
-\subparagraph{Le domaine}
-\label{subp:Le domaine}
+\paragraph{Le domaine}
+\label{par:Le domaine}
 Le domaine est la zone où est concentré toute la connaissance métier de l'application.
 On y trouve ainsi les objets nécessaires pour appliquer les règles métiers et pour appliquer les contrôles nécessaires à chaque actions, des agrégats et des services notamment.
+\paragraph{Les aggrégats}
+\label{par:Les aggrégats}
+Un aggrégat est un objet modifiable lors d'une transaction.
+Il est généralement repésenté par une classe possédant un identifiant unique dans toute l'application mais on peut aussi trouver des représentations d'aggrégats via plusieurs classes.
+Dans ce second cas, une d'entre elle est dite classe racine ("root class") et tout accès à l'aggrégat par l'extérieur se fait via cette classe et toutes les autres restent interne à l'agrégat.
+Ces classes contiennent la logique du domaine (\ref{par:Le domaine}) et permettent d'effectuer des contrôles.
+\paragraph{Les repositories (ou dépôts)}
+\label{par:Les repositories (ou dépôts)}
+Les différentes instances des aggrégats sont stockées dans un objet appelé repository (dépôt en français).
+Ces objets servent d'intermédiaires entre le domaine (\ref{par:Le domaine}) et la base de donnée.
+On retrouve dans ces objets des méthodes du type 'save' qui permet de sauvegarder les changements relatifs à un aggrégat ou 'getById' qui permet de récupérer un aggrégat particulier.
 
 
 %-------------------------------------------------------------------------
@@ -46,11 +46,13 @@ De tels noms sont ainsi très expressifs et permettent de clarifier la cause de 
 \paragraph{}
 Une commande récupère via des repositories les agrégats qu'elle vise.
 Via les informations contenues dans ces agrégats et potentiellement avec différents services, les contrôles nécessaires à la validation de la commande peuvent être appliqués.
-Une fois que les différents contrôles sur la commande faits, on applique son effet.
+Une fois que les différents contrôles sur la commande faits, on applique son effet sur l'aggrégat, ce qui génère des événements de modification.
 Les découpages et cette logique permettent de maîtriser l'impact de chaque action sur le système.
 \paragraph{}
 Les méthodes de commandes prennent ainsi en paramètre des identifiants d'entités ainsi que des valeurs simples.
 Elles ne doivent rien renvoyer mais peuvent générer des exceptions.
+La mise en commun des patterns CQRS et Event Sourcing demande l'envoi des événements générés dans un bus en même temps que l'enregistrement des modifications sur l'aggrégat.
+Ces événements seront écoutés et utilisés pour la construction de la seconde couche de ce pattern, la couche de lecture des données.
 
 %-------------------------------------------------------------------------
 \subsubsection{La couche de lecture des données: Query}
@@ -62,6 +64,10 @@ En effet le besoin représenté ici est celui d'une lecture dans un cas d'utilis
 Le pattern Query consiste alors à exécuter une requête précise en base et de restituer un objet de type Data Transfer Object (DTO) concis qui pourra être utilisé directement.
 Cela signifie que les contrôles sont réduits au minimum et que les DTOs utilisés sont des objets représentant exactement et uniquement le besoin en lecture, généralement des besoins IHM.
 Cette méthode permet de récupérer seulement les données dont on a besoin en une fois, en se passant ainsi de parcourir plusieurs tables à travers desquelles les données seraient éparpillées.
+\paragraph{}
+Les projections sont des objets écoutant des événements particuliers émanant des modifications venant de la couche de modification des données.
+Leur but est de retirer certaines informations particulières de ces événements de manière à construire les DTO qui seront utilisés dans la couche lecture.
+Les projections écoutent alors les événements apparaissant dans le bus de manière asynchrone et répercutent les changements qu'ils demandent, mettant ainsi à jour la couche de lecture symétriquement à la couche d'écriture.
 
 \paragraph{}
 \label{par:Organisation conclusion}

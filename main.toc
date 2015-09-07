@@ -67,29 +67,54 @@
 \contentsline {subsection}{\numberline {3.5.1}Organisation d'une application bas\IeC {\'e}e sur une telle architecture}{16}{subsection.70}
 \contentsline {paragraph}{}{16}{section*.71}
 \contentsline {paragraph}{}{17}{section*.72}
-\contentsline {subsubsection}{\numberline {3.5.1.1}La couche de modification des donn\IeC {\'e}es: Command}{17}{subsubsection.73}
-\contentsline {paragraph}{}{17}{section*.74}
-\contentsline {subsubsection}{\numberline {3.5.1.2}La couche de lecture des donn\IeC {\'e}es: Query}{17}{subsubsection.75}
-\contentsline {subsubsection}{\numberline {3.5.1.3}Le domaine}{18}{subsubsection.76}
-\contentsline {subsubsection}{\numberline {3.5.1.4}Les events}{18}{subsubsection.77}
-\contentsline {subsection}{\numberline {3.5.2}Impl\IeC {\'e}mentation}{18}{subsection.78}
-\contentsline {subsubsection}{\numberline {3.5.2.1}Infrastructure}{18}{subsubsection.79}
-\contentsline {paragraph}{Les aggr\IeC {\'e}gats}{19}{section*.80}
-\contentsline {paragraph}{Les repositories (ou d\IeC {\'e}p\IeC {\^o}ts)}{19}{section*.81}
-\contentsline {paragraph}{R\IeC {\'e}cup\IeC {\'e}ration des donn\IeC {\'e}es}{19}{section*.82}
-\contentsline {subsubsection}{\numberline {3.5.2.2}Les commandes}{19}{subsubsection.83}
-\contentsline {section}{\numberline {3.6}Event sourcing}{19}{section.84}
-\contentsline {subsection}{\numberline {3.6.1}Fonctionnement d\IeC {\'e}sir\IeC {\'e}}{20}{subsection.85}
-\contentsline {subsection}{\numberline {3.6.2}Fonctionnement technique}{20}{subsection.86}
-\contentsline {subsubsection}{\numberline {3.6.2.1}Enregistrement de l'\IeC {\'e}v\IeC {\'e}nement}{20}{subsubsection.87}
-\contentsline {subsubsection}{\numberline {3.6.2.2}Utilisation de l'\IeC {\'e}v\IeC {\'e}nement}{20}{subsubsection.88}
-\contentsline {section}{\numberline {3.7}Domain Driven Development}{21}{section.89}
-\contentsline {section}{\numberline {3.8}Organisation}{21}{section.90}
-\contentsline {section}{\numberline {3.9}Auto-\IeC {\'e}valuation}{21}{section.91}
-\contentsline {section}{\numberline {3.10}R\IeC {\'e}sultats et prolongements possibles}{21}{section.92}
-\contentsline {chapter}{\numberline {4}Le stage dans ma formation}{22}{chapter.93}
-\contentsline {section}{\numberline {4.1}Ce qui m'a \IeC {\'e}t\IeC {\'e} le plus utile dans ma formation}{22}{section.94}
-\contentsline {section}{\numberline {4.2}Ce que m'a apport\IeC {\'e} ce stage pour le reste de ma carri\IeC {\`e}re}{22}{section.95}
+\contentsline {paragraph}{}{17}{section*.73}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Les concepts tir\IeC {\'e}s du Domain Driven Design}{17}{subsubsection.74}
+\contentsline {paragraph}{Le domaine}{17}{section*.75}
+\contentsline {paragraph}{Les aggr\IeC {\'e}gats}{17}{section*.76}
+\contentsline {paragraph}{Les repositories (ou d\IeC {\'e}p\IeC {\^o}ts)}{18}{section*.77}
+\contentsline {subsubsection}{\numberline {3.5.1.2}La couche de modification des donn\IeC {\'e}es: Command}{18}{subsubsection.78}
+\contentsline {paragraph}{}{18}{section*.79}
+\contentsline {paragraph}{}{18}{section*.80}
+\contentsline {paragraph}{}{18}{section*.81}
+\contentsline {subsubsection}{\numberline {3.5.1.3}La couche de lecture des donn\IeC {\'e}es: Query}{19}{subsubsection.82}
+\contentsline {paragraph}{}{19}{section*.83}
+\contentsline {paragraph}{}{19}{section*.84}
+\contentsline {paragraph}{}{19}{section*.85}
+\contentsline {subsection}{\numberline {3.5.2}Impl\IeC {\'e}mentation}{19}{subsection.86}
+\contentsline {subsubsection}{\numberline {3.5.2.1}La s\IeC {\'e}paration effective de la lecture et de l'\IeC {\'e}criture}{19}{subsubsection.87}
+\contentsline {paragraph}{L'\IeC {\'e}criture}{20}{section*.88}
+\contentsline {subparagraph}{Coh\IeC {\'e}rence de la base}{20}{section*.89}
+\contentsline {subparagraph}{Migration des \IeC {\'e}v\IeC {\'e}nements}{20}{section*.90}
+\contentsline {subparagraph}{}{20}{section*.91}
+\contentsline {paragraph}{La lecture}{21}{section*.92}
+\contentsline {subparagraph}{}{21}{section*.93}
+\contentsline {paragraph}{}{21}{section*.94}
+\contentsline {subsubsection}{\numberline {3.5.2.2}Bus d'\IeC {\'e}v\IeC {\'e}nements: Kafka}{21}{subsubsection.95}
+\contentsline {paragraph}{Vocabulaire}{21}{section*.96}
+\contentsline {paragraph}{Utilisation}{21}{section*.97}
+\contentsline {subsubsection}{\numberline {3.5.2.3}Les commandes}{22}{subsubsection.98}
+\contentsline {paragraph}{L'interface}{22}{section*.99}
+\contentsline {subparagraph}{Envoi d'une commande}{22}{section*.100}
+\contentsline {subparagraph}{R\IeC {\'e}ception de la r\IeC {\'e}ponse}{22}{section*.101}
+\contentsline {paragraph}{Backend}{22}{section*.102}
+\contentsline {subparagraph}{Les objets Command}{22}{section*.103}
+\contentsline {subparagraph}{Le command executor}{23}{section*.104}
+\contentsline {subsection}{\numberline {3.5.3}Les Queries}{23}{subsection.105}
+\contentsline {paragraph}{Backend}{23}{section*.106}
+\contentsline {subparagraph}{Projections}{24}{section*.107}
+\contentsline {subparagraph}{Les objets query}{24}{section*.108}
+\contentsline {section}{\numberline {3.6}Event sourcing}{24}{section.109}
+\contentsline {subsection}{\numberline {3.6.1}Fonctionnement d\IeC {\'e}sir\IeC {\'e}}{25}{subsection.110}
+\contentsline {subsection}{\numberline {3.6.2}Fonctionnement technique}{25}{subsection.111}
+\contentsline {subsubsection}{\numberline {3.6.2.1}Enregistrement de l'\IeC {\'e}v\IeC {\'e}nement}{25}{subsubsection.112}
+\contentsline {subsubsection}{\numberline {3.6.2.2}Utilisation de l'\IeC {\'e}v\IeC {\'e}nement}{25}{subsubsection.113}
+\contentsline {section}{\numberline {3.7}Domain Driven Development}{26}{section.114}
+\contentsline {section}{\numberline {3.8}Organisation}{26}{section.115}
+\contentsline {section}{\numberline {3.9}Auto-\IeC {\'e}valuation}{26}{section.116}
+\contentsline {section}{\numberline {3.10}R\IeC {\'e}sultats et prolongements possibles}{26}{section.117}
+\contentsline {chapter}{\numberline {4}Le stage dans ma formation}{27}{chapter.118}
+\contentsline {section}{\numberline {4.1}Ce qui m'a \IeC {\'e}t\IeC {\'e} le plus utile dans ma formation}{27}{section.119}
+\contentsline {section}{\numberline {4.2}Ce que m'a apport\IeC {\'e} ce stage pour le reste de ma carri\IeC {\`e}re}{27}{section.120}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.96}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{28}{appendix.121}
 \vspace {2em}
