@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  7 SEP 2015 17:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  10 SEP 2015 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1031,11 +1031,11 @@ l.99 \abstract
 (./main.toc [4
 
 
-] [5])
+] [5] [6])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [6]
+ [7]
 ------------------------------------------------------------------------------
  List of Figures
 ------------------------------------------------------------------------------
@@ -1043,20 +1043,12 @@ l.99 \abstract
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [7
+ [8
 
 
 ]
 ------------------------------------------------------------------------------
  Abbreviations
-------------------------------------------------------------------------------
-[8
-
-
-
-]
-------------------------------------------------------------------------------
- Symbols
 ------------------------------------------------------------------------------
 [9
 
@@ -1064,9 +1056,17 @@ l.99 \abstract
 
 ]
 ------------------------------------------------------------------------------
- Dedicatory
+ Symbols
 ------------------------------------------------------------------------------
 [10
+
+
+
+]
+------------------------------------------------------------------------------
+ Dedicatory
+------------------------------------------------------------------------------
+[11
 
 ] (./Chapters/Chapter1.tex
 Chapter 1.
@@ -1096,28 +1096,36 @@ nt, se re-spectent et s'entraident.
 [5]) (./Chapters/Chapter3.tex [6]
 Chapter 3.
 ------------------------------------------------------------------------------
- 3 Les apports techniques
+ 3 \IeC {\^E}tre d\IeC {\'e}veloppeur \IeC {\`a} Cadremploi
 ------------------------------------------------------------------------------
+
+Package hyperref Warning: Difference (4) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 12.
+
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 19.
+
 (./Chapters/Chapter3/section1.tex [7
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 25.
+(hyperref)                than one, level fixed on input line 24.
 
 [8]) (./Chapters/Chapter3/section2.tex
-Overfull \hbox (1.29262pt too wide) in paragraph at lines 52--1
+Overfull \hbox (1.29262pt too wide) in paragraph at lines 56--1
 \T1/lmr/m/n/10.95 toutes les in-for-ma-tions con-cer-nant une tâche don-née. Ce
  stock-age dou-ble de l'information
  []
 
-[9] [10]
+[9] [10] [11]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 53.
 
-) (./Chapters/Chapter3/section3.tex [11] [12])
-(./Chapters/Chapter3/section4.tex [13]
+) (./Chapters/Chapter3/section3.tex [12] [13])
+(./Chapters/Chapter3/section4.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 14.
@@ -1127,17 +1135,18 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 8.
 
+[15]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 14.
 
-[15] (./Chapters/Chapter3/architecture/organisation.tex
+(./Chapters/Chapter3/architecture/organisation.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 3.
 
 
-<Figures/Chapter3/architecture/tiersvscqrs.png, id=710, 893.3375pt x 394.47375p
+<Figures/Chapter3/architecture/tiersvscqrs.png, id=729, 893.3375pt x 394.47375p
 t>
 File: Figures/Chapter3/architecture/tiersvscqrs.png Graphic file (type png)
  <use Figures/Chapter3/architecture/tiersvscqrs.png>
@@ -1145,13 +1154,15 @@ Package pdftex.def Info: Figures/Chapter3/architecture/tiersvscqrs.png used on
 input line 11.
 (pdftex.def)             Requested size: 357.32866pt x 157.7867pt.
  [16]
-
-LaTeX Warning: Reference `subs:Le domaine' on page 17 undefined on input line 3
-3.
+Overfull \hbox (22.19946pt too wide) in paragraph at lines 26--30
+\T1/lmr/m/n/10.95 générale-ment repésenté par une classe pos-sé-dant un iden-ti
+-fi-ant unique dans toute l'application
+ []
 
 [17 <./Figures/Chapter3/architecture/tiersvscqrs.png>]
 
-LaTeX Warning: Reference `(' on page 18 undefined on input line 62.
+LaTeX Warning: Reference `subs:Le domaine' on page 18 undefined on input line 6
+1.
 
 [18]) (./Chapters/Chapter3/architecture/implementation.tex [19] [20] [21]
 Overfull \hbox (19.25847pt too wide) in paragraph at lines 98--105
@@ -1193,9 +1204,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 228.
 (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 228.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 228.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6B9B0FE6CD231E77C6126094B754BB92;20579.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 6A32A03D26F6757894E55C3A4F26FADE;20735
+(rerunfilecheck)             After:  281BC8314C3722679C2A1DDEDC5431E6;20782.
 
 LaTeX Warning: There were undefined references.
 
@@ -1205,13 +1222,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 228.
  ) 
 Here is how much of TeX's memory you used:
- 13902 strings out of 495003
- 196857 string characters out of 6180449
- 260180 words of memory out of 5000000
- 16703 multiletter control sequences out of 15000+600000
+ 13908 strings out of 495003
+ 196939 string characters out of 6180449
+ 260186 words of memory out of 5000000
+ 16705 multiletter control sequences out of 15000+600000
  74332 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 49i,12n,45p,669b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,669b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/te
 xmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
@@ -1223,9 +1240,9 @@ usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/pu
 blic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsy8.pfb>
-Output written on main.pdf (39 pages, 420711 bytes).
+Output written on main.pdf (40 pages, 424587 bytes).
 PDF statistics:
- 846 PDF objects out of 1000 (max. 8388607)
- 161 named destinations out of 1000 (max. 500000)
- 926 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 867 PDF objects out of 1000 (max. 8388607)
+ 165 named destinations out of 1000 (max. 500000)
+ 950 words of extra memory for PDF output out of 10000 (max. 10000000)
 

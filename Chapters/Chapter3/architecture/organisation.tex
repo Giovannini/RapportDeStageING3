@@ -58,7 +58,7 @@ Ces événements seront écoutés et utilisés pour la construction de la second
 \subsubsection{La couche de lecture des données: Query}
 \label{subs:La couche de lecture des données: Query}
 \paragraph{}
-La partie Query de ce modèle se base sur le fait que les objets du \ref(subs:Le domaine){domaine} sont volumineux et qu'il est possible de s'en passer.
+La partie Query de ce modèle se base sur le fait que les objets du domaine (\ref{subs:Le domaine}) sont volumineux et qu'il est possible de s'en passer.
 Cette couche fonctionne ainsi uniquement en lecture seule et aucune modification n'est apportée aux données.
 En effet le besoin représenté ici est celui d'une lecture dans un cas d'utilisation bien précis, l'objectif est d'aller extrêmement vite.
 Le pattern Query consiste alors à exécuter une requête précise en base et de restituer un objet de type Data Transfer Object (DTO) concis qui pourra être utilisé directement.
