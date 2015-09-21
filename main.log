@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  16 SEP 2015 17:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  21 SEP 2015 18:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -883,6 +883,12 @@ Package: wrapfig 2003/01/31  v 3.6
 Package hyperref Info: Option `colorlinks' set `true' on input line 15.
  (./main.aux
 
+LaTeX Warning: Label `pic:suivi client backoffice' multiply defined.
+
+
+LaTeX Warning: Label `par:Git' multiply defined.
+
+
 LaTeX Warning: Label `par:Backend' multiply defined.
 
 )
@@ -1044,7 +1050,7 @@ l.100 \abstract
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [6]
+ [6] [7]
 ------------------------------------------------------------------------------
  List of Figures
 ------------------------------------------------------------------------------
@@ -1052,20 +1058,12 @@ l.100 \abstract
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [7
+ [8
 
 
 ]
 ------------------------------------------------------------------------------
  Abbreviations
-------------------------------------------------------------------------------
-[8
-
-
-
-]
-------------------------------------------------------------------------------
- Symbols
 ------------------------------------------------------------------------------
 [9
 
@@ -1073,9 +1071,17 @@ l.100 \abstract
 
 ]
 ------------------------------------------------------------------------------
- Dedicatory
+ Symbols
 ------------------------------------------------------------------------------
 [10
+
+
+
+]
+------------------------------------------------------------------------------
+ Dedicatory
+------------------------------------------------------------------------------
+[11
 
 ] (./Chapters/Chapter1.tex
 Chapter 1.
@@ -1091,58 +1097,67 @@ Chapter 2.
 ------------------------------------------------------------------------------
  2 L'environnement du stage
 ------------------------------------------------------------------------------
-<Pictures/logoFC.jpg, id=664, 1711.89563pt x 520.19344pt>
+<Pictures/logoFC.jpg, id=677, 1711.89563pt x 520.19344pt>
 File: Pictures/logoFC.jpg Graphic file (type jpg)
 
 <use Pictures/logoFC.jpg>
-Package pdftex.def Info: Pictures/logoFC.jpg used on input line 16.
+Package pdftex.def Info: Pictures/logoFC.jpg used on input line 13.
 (pdftex.def)             Requested size: 256.77327pt x 78.02563pt.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 18.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 15.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [3
 
- <./Pictures/logoFC.jpg>] <Pictures/EmploiFCMS.png, id=671, 1103.12125pt x 580.
+ <./Pictures/logoFC.jpg>] <Pictures/EmploiFCMS.png, id=684, 1103.12125pt x 580.
 1675pt>
 File: Pictures/EmploiFCMS.png Graphic file (type png)
 
 <use Pictures/EmploiFCMS.png>
-Package pdftex.def Info: Pictures/EmploiFCMS.png used on input line 33.
+Package pdftex.def Info: Pictures/EmploiFCMS.png used on input line 30.
 (pdftex.def)             Requested size: 521.84132pt x 274.46698pt.
 
-Overfull \hbox (34.5316pt too wide) in paragraph at lines 32--34
+Overfull \hbox (34.5316pt too wide) in paragraph at lines 29--31
  |  [] 
  []
 
 [4 <./Pictures/EmploiFCMS.png>] [5]
-<Pictures/redmine_logo.png, id=681, 401.5pt x 401.5pt>
+Overfull \hbox (1.27443pt too wide) in paragraph at lines 68--72
+\T1/lmr/m/n/10.95 d'open space à taille hu-maine. Puisque FI-GARO CLAS-SI-FIEDS
+ est la fu-sion de plusieurs
+ []
+
+[6] <Pictures/redmine_logo.png, id=698, 401.5pt x 401.5pt>
 File: Pictures/redmine_logo.png Graphic file (type png)
 
 <use Pictures/redmine_logo.png>
-Package pdftex.def Info: Pictures/redmine_logo.png used on input line 90.
+Package pdftex.def Info: Pictures/redmine_logo.png used on input line 92.
 (pdftex.def)             Requested size: 83.49333pt x 83.49042pt.
 
-<Pictures/git_logo.jpg, id=682, 1238.6275pt x 703.62875pt>
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 95.
+
+<Pictures/git_logo.jpg, id=699, 1238.6275pt x 703.62875pt>
 File: Pictures/git_logo.jpg Graphic file (type jpg)
 
 <use Pictures/git_logo.jpg>
-Package pdftex.def Info: Pictures/git_logo.jpg used on input line 99.
+Package pdftex.def Info: Pictures/git_logo.jpg used on input line 101.
 (pdftex.def)             Requested size: 125.24318pt x 71.14001pt.
 
-<Pictures/slack_logo.png, id=683, 336.25626pt x 297.11pt>
+<Pictures/slack_logo.png, id=700, 336.25626pt x 297.11pt>
 File: Pictures/slack_logo.png Graphic file (type png)
 
 <use Pictures/slack_logo.png>
-Package pdftex.def Info: Pictures/slack_logo.png used on input line 109.
+Package pdftex.def Info: Pictures/slack_logo.png used on input line 111.
 (pdftex.def)             Requested size: 83.49333pt x 73.7741pt.
- [6 <./Pictures/redmine_logo.png (PNG copy)> <./Pictures/git_logo.jpg> <./Pictu
+ [7 <./Pictures/redmine_logo.png (PNG copy)> <./Pictures/git_logo.jpg> <./Pictu
 res/slack_logo.png>]) (./Chapters/Chapter3.tex
-[7] [8]
+[8]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 \IeC {\^E}tre d\IeC {\'e}veloppeur \IeC {\`a} Cadremploi
 ------------------------------------------------------------------------------
-<Pictures/CE_logo.png, id=700, 1155.31625pt x 700.6175pt>
+<Pictures/CE_logo.png, id=713, 1155.31625pt x 700.6175pt>
 File: Pictures/CE_logo.png Graphic file (type png)
 
 <use Pictures/CE_logo.png>
@@ -1160,38 +1175,98 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 (./Chapters/Chapter3/section1.tex [9
 
  <./Pictures/CE_logo.png>]
-<Pictures/EspaceRecruteur.png, id=706, 1889.0575pt x 950.55125pt>
-File: Pictures/EspaceRecruteur.png Graphic file (type png)
+<Pictures/backoffice.png, id=719, 1568.86125pt x 732.7375pt>
+File: Pictures/backoffice.png Graphic file (type png)
 
-<use Pictures/EspaceRecruteur.png>
-Package pdftex.def Info: Pictures/EspaceRecruteur.png used on input line 22.
-(pdftex.def)             Requested size: 417.47307pt x 210.0647pt.
+<use Pictures/backoffice.png>
+Package pdftex.def Info: Pictures/backoffice.png used on input line 19.
+(pdftex.def)             Requested size: 542.71625pt x 253.47673pt.
+
+Overfull \hbox (55.40652pt too wide) in paragraph at lines 18--21
+ |  [] 
+ []
+
+[10 <./Pictures/backoffice.png>]
+
+Package caption Warning: \label without proper \caption on input line 47.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `pic:suivi client backoffice' on page 11 undefined on 
+input line 36.
+
+<Pictures/stats.png, id=725, 1222.5675pt x 623.32875pt>
+File: Pictures/stats.png Graphic file (type png)
+
+<use Pictures/stats.png>
+Package pdftex.def Info: Pictures/stats.png used on input line 46.
+(pdftex.def)             Requested size: 500.9664pt x 255.41426pt.
+
+Overfull \hbox (13.65668pt too wide) in paragraph at lines 45--48
+ |  [] 
+ []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[11]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 30.
+(hyperref)                than one, level fixed on input line 70.
 
-[10] [11 <./Pictures/EspaceRecruteur.png>]) (./Chapters/Chapter3/section2.tex
-Overfull \hbox (1.29262pt too wide) in paragraph at lines 62--1
-\T1/lmr/m/n/10.95 toutes les in-for-ma-tions con-cer-nant une tâche don-née. Ce
- stock-age dou-ble de l'information
- []
+) (./Chapters/Chapter3/section2.tex [12 <./Pictures/stats.png>]
+<Pictures/EspaceRecruteur.png, id=734, 1889.0575pt x 950.55125pt>
+File: Pictures/EspaceRecruteur.png Graphic file (type png)
 
-[12] [13]
+<use Pictures/EspaceRecruteur.png>
+Package pdftex.def Info: Pictures/EspaceRecruteur.png used on input line 19.
+(pdftex.def)             Requested size: 417.47307pt x 210.0647pt.
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 53.
-
-) (./Chapters/Chapter3/section3.tex [14] [15])
-(./Chapters/Chapter3/section4.tex [16]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 14.
+(hyperref)                than one, level fixed on input line 28.
 
-[17]) (./Chapters/Chapter3/architecture.tex
+[13 <./Pictures/EspaceRecruteur.png>] [14]) (./Chapters/Chapter3/section3.tex
+[15] <Pictures/play_logo.png, id=749, 2162.0775pt x 1129.21875pt>
+File: Pictures/play_logo.png Graphic file (type png)
+
+<use Pictures/play_logo.png>
+Package pdftex.def Info: Pictures/play_logo.png used on input line 9.
+(pdftex.def)             Requested size: 125.24318pt x 65.40685pt.
+
+<Pictures/scala_logo.png, id=750, 682.55pt x 682.55pt>
+File: Pictures/scala_logo.png Graphic file (type png)
+
+<use Pictures/scala_logo.png>
+Package pdftex.def Info: Pictures/scala_logo.png used on input line 11.
+(pdftex.def)             Requested size: 62.61841pt x 62.61414pt.
+ [16 <./Pictures/play_logo.png> <./Pictures/scala_logo.png>] <Pictures/angular_
+logo.png, id=759, 2007.5pt x 533.995pt>
+File: Pictures/angular_logo.png Graphic file (type png)
+
+<use Pictures/angular_logo.png>
+Package pdftex.def Info: Pictures/angular_logo.png used on input line 35.
+(pdftex.def)             Requested size: 166.98668pt x 44.41527pt.
+
+<Pictures/intellij_logo.png, id=760, 731.73375pt x 903.375pt>
+File: Pictures/intellij_logo.png Graphic file (type png)
+
+<use Pictures/intellij_logo.png>
+Package pdftex.def Info: Pictures/intellij_logo.png used on input line 52.
+(pdftex.def)             Requested size: 62.61841pt x 77.30276pt.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 55.
+
+<Pictures/jenkins_logo.png, id=761, 144.54pt x 144.54pt>
+File: Pictures/jenkins_logo.png Graphic file (type png)
+
+<use Pictures/jenkins_logo.png>
+Package pdftex.def Info: Pictures/jenkins_logo.png used on input line 66.
+(pdftex.def)             Requested size: 62.61841pt x 62.61855pt.
+ [17 <./Pictures/angular_logo.png> <./Pictures/intellij_logo.png>]) (./Chapters
+/Chapter3/architecture.tex [18 <./Pictures/jenkins_logo.png>]
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 8.
@@ -1200,37 +1275,37 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 14.
 
-[18] (./Chapters/Chapter3/architecture/organisation.tex
+(./Chapters/Chapter3/architecture/organisation.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 3.
 
-
-<Figures/Chapter3/architecture/tiersvscqrs.png, id=745, 893.3375pt x 394.47375p
+[19]
+<Figures/Chapter3/architecture/tiersvscqrs.png, id=784, 893.3375pt x 394.47375p
 t>
 File: Figures/Chapter3/architecture/tiersvscqrs.png Graphic file (type png)
  <use Figures/Chapter3/architecture/tiersvscqrs.png>
 Package pdftex.def Info: Figures/Chapter3/architecture/tiersvscqrs.png used on 
 input line 11.
 (pdftex.def)             Requested size: 357.32866pt x 157.7867pt.
- [19]
+ [20 <./Figures/Chapter3/architecture/tiersvscqrs.png>]
 Overfull \hbox (22.19946pt too wide) in paragraph at lines 26--30
 \T1/lmr/m/n/10.95 générale-ment repésenté par une classe pos-sé-dant un iden-ti
 -fi-ant unique dans toute l'application
  []
 
-[20 <./Figures/Chapter3/architecture/tiersvscqrs.png>]
+[21]
 
-LaTeX Warning: Reference `subs:Le domaine' on page 21 undefined on input line 6
+LaTeX Warning: Reference `subs:Le domaine' on page 22 undefined on input line 6
 1.
 
-[21]) (./Chapters/Chapter3/architecture/implementation.tex [22] [23] [24]
+) (./Chapters/Chapter3/architecture/implementation.tex [22] [23] [24]
 Overfull \hbox (19.25847pt too wide) in paragraph at lines 98--105
  []\T1/lmr/bx/n/10.95 Les ob-jets Com-mand [][] \T1/lmr/m/n/10.95 Comme ex-pliq
 ué précédem-ment, l'équipe Cadrem-ploi a représenté
  []
 
-[25]
+[25] [26]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 132.
@@ -1239,20 +1314,25 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 134.
 
-[26])) (./Chapters/Chapter3/eventSourcing.tex [27]) [28])
-(./Chapters/Chapter4.tex [29]
+)) (./Chapters/Chapter3/eventSourcing.tex [27])
+(./Chapters/Chapter3/section4.tex [28]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 14.
+
+[29]) [30]) (./Chapters/Chapter4.tex [31]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Le stage dans ma formation
 ------------------------------------------------------------------------------
-) (./Appendices/AppendixA.tex [30
+) (./Appendices/AppendixA.tex [32
 
 ]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [31
+) [33
 
 ]
 ------------------------------------------------------------------------------
@@ -1264,9 +1344,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 229.
 (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 229.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 229.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A3D20D12E30808002122E51D98394419;19000.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 5EB15C53B987E3A2F57E95317F280611;19480
+(rerunfilecheck)             After:  3BFC9E2D6CFD2A901F1423C246AB76E2;19477.
 
 LaTeX Warning: There were undefined references.
 
@@ -1276,27 +1362,120 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 229.
  ) 
 Here is how much of TeX's memory you used:
- 14017 strings out of 495003
- 198785 string characters out of 6180449
- 261413 words of memory out of 5000000
- 16793 multiletter control sequences out of 15000+600000
- 74332 words of font info for 51 fonts, out of 8000000 for 9000
+ 14097 strings out of 495003
+ 200273 string characters out of 6180449
+ 261463 words of memory out of 5000000
+ 16825 multiletter control sequences out of 15000+600000
+ 80117 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 49i,12n,45p,669b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
-vips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/te
-xmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
-thit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmsy8.pfb>
-Output written on main.pdf (42 pages, 1574336 bytes).
+ 49i,12n,45p,504b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{subsubsection.128} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.127} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.126} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.125} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.124} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.123} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.122} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.121} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.120} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.119} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.118} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.114} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.111} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.107} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.104} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.103} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.102} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.98} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.96} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.95} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.94} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.91} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.90} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.87} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.86} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.83} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.82} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.81} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.80} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section*.79} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.76} has been referenced but does not exi
+st, replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvi
+ps/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texm
+f/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-math
+it.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmsy8.pfb>
+Output written on main.pdf (45 pages, 2012107 bytes).
 PDF statistics:
- 884 PDF objects out of 1000 (max. 8388607)
- 173 named destinations out of 1000 (max. 500000)
- 977 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 962 PDF objects out of 1000 (max. 8388607)
+ 214 named destinations out of 1000 (max. 500000)
+ 1020 words of extra memory for PDF output out of 10000 (max. 10000000)
 

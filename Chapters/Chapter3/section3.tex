@@ -4,6 +4,14 @@
 \label{sub:Langages}
 \subsubsection{Backend}
 \label{subs:Backend}
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{Pictures/play_logo.png}
+    \hspace{1in}
+    \includegraphics[width=0.15\textwidth]{Pictures/scala_logo.png}
+  \end{center}
+\end{figure}
+
 Le nouvel espace recruteur est géré en backend via le framework Play! dans sa dernière version (2.4.2) et sous le langage Scala.
 Il s'agit d'un couple qui permet d'écrire du code rapidement et de façon maintenable.
 Play est l'un des framework les plus connus dans le monde Java et offre de nombreux avantages:
@@ -18,18 +26,50 @@ Play est l'un des framework les plus connus dans le monde Java et offre de nombr
   \item Il est sans état et basé sur des entrées sorties non bloquantes et permet ainsi une capacité à monter en charge très intéressante
   \item Il supporte nativement REST, JSON, Websocket entre autres et se présente donc comme un framework moderne
 \end{itemize}
-Un des points négatifs de ce choix en backend est l'utilisation de fait obligatoire de SBT qui nous a posé de nombreux problèmes
+Un des points négatifs de ce choix en backend est l'utilisation de fait obligatoire de SBT qui nous a posé de nombreux problèmes.
+En effet, cet outil était souvent lent, compliqué d'utilisation et ralentissait souvent le développement notamment via ses résolutions de dépendances interminables.
 \subsubsection{Frontend}
 \label{subs:Frontend}
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{Pictures/angular_logo.png}
+  \end{center}
+\end{figure}
+%% TODO
 Du côté front, l'équipe a utilisé le framework AngularJS ainsi que la librairie D3.js qui permettent des animations dynamiques.
+Ce choix de technologie peut être soutenu pour les points suivants:
+\begin{itemize}
+  \item Angular permet une maintenabilité de l'application aisée, notamment en demandant une structure de type MVC au développeur, ainsi qu'en utilisant du HTMl, qui est déclaratif, pour définir l'interface utilisateur.
+  \item Il s'agit de plus d'un framework flexible puisqu'il est possible de composer une application en
+\end{itemize}
+
 \subsection{Environnements et outils}
+\paragraph{IntelliJ}
+\label{par:IntelliJ}
+\begin{wrapfigure}{l}{0.15\textwidth}
+  \vspace{-2.5em}
+  \begin{center}
+    \includegraphics[width=0.15\textwidth]{Pictures/intellij_logo.png}
+  \end{center}
+\end{wrapfigure}
 Le développement de l'espace recruteur s'est fait sous le framework Play! et IntelliJ Idea était l'IDE utilisé par l'équipe pour développer, puisqu'il offre une bonne intégration de ce framework.
-J'avais déjà souvent utilisé cet IDE pour les différents projets que j'ai eu à rendre tout au long de ma scolarité à l'EISTI, ainsi son utilisation ne m'a posé aucun problème.
+J'avais déjà souvent utilisé cet IDE pour différents projets que j'ai eu à rendre tout au long de ma scolarité à l'EISTI, ainsi son utilisation ne m'a posé aucun problème.
+\paragraph{Git}
+\label{par:Git}
 L'équipe étant nombreuse et l'application étant sujete à grossir avec le temps, un outil de gestion de versions a été utilisée.
 Git est l'outil le plus répandu et le plus efficace connu, c'est ce que l'équipe Cadremploi a utilisé.
 Il s'agissait aussi d'un outil que j'avais beaucoup utilisé mais de manière très simpliste et j'ai appris à m'en servir d'une toute autre façon, bien plus complète, pendant ce stage.
-L'équipe Cadremploi utilise aussi Jenkins comme outil d'intégration continue pour déployer les nouveautés sur les différents environnement de production utilisés.
+\paragraph{Jenkins}
+\label{par:Jenkins}
+\begin{wrapfigure}{rH}{0.25\textwidth}
+  \begin{center}
+    \includegraphics[width=0.15\textwidth]{Pictures/jenkins_logo.png}
+  \end{center}
+\end{wrapfigure}
+L'équipe Cadremploi utilise aussi Jenkins comme outil d'intégration continue pour déployer les nouveautés sur les différents environnement de production utilisés (recette, intégration), les mises en production et préproductions n'étant pas gérées directement par l'équipe.
 Cet outil avait été brièvement présenté lors du cours d'Outils de Développement mais jamais utilisé.
+Jenkins est un outil open source permettant de compiler et de tester un projet de manière continue.
+Il aide de fait les développeurs à intégrer facilement des changements à une application.
 Bien que nous avions été tenté de mettre en place un Jenkins avec mon équipe de Projet de Fin d'Étude, cela ne s'est jamais fait par manque de temps et puisqu'un besoin concret ne s'est jamais montré.
 Je n'ai pas eu de mal à l'utiliser puisqu'une fois configuré, cet outil est réelement simple d'utilisation.
 Plusieurs environnements de développement sont utilisés par Cadremploi comme pour les autres équipes de Figaro Classifieds:
@@ -38,6 +78,8 @@ Plusieurs environnements de développement sont utilisés par Cadremploi comme p
   \item{Environnement de recette}, où la Project Owner vérifie que les changements apportés fonctionnent effectivement et les valide.
   \item{Environnement de pré-production} qui est un environnement qui ressemble autant que possible à l'environnement de production et où sont surtout testés les architectures
   \item{Environnement de production} qui est la dernière étape, contenant l'application utlisée réelement par les utilisateurs
+  \item{Environnement de'intégration}, il s'agit d'un environnement supplémentaire qui est préféré pour les tests fait sur l'infrastructure du projet.
 \end{itemize}
-J'ai été habitué durant ma scolarité à l'EISTI à utiliser la majorité des outils présentés précédemment puisque j'étais uniquement étranger à Jenkins. J'ai malgré tout grandement progressé dans mon utilisation de ces outils, particulièrement pour Git puisque j'ai redécouvert l'outil puisque le projet auquel je participais differais grandement en taille de ceux auquels j'avais contribué auparavant.
+J'ai été habitué durant ma scolarité à l'EISTI à utiliser la majorité des outils présentés précédemment puisque j'étais uniquement étranger à Jenkins.
+J'ai malgré tout grandement progressé dans mon utilisation de ces outils et particulièrement pour Git que j'ai redécouvert; le projet auquel je participais differais grandement en taille de ceux auquels j'avais contribué auparavant.
 %Potentiellement, Rundeck, Kibana, Puppet.
