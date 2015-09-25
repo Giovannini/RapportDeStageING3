@@ -11,7 +11,7 @@
     \includegraphics[width=0.15\textwidth]{Pictures/scala_logo.png}
   \end{center}
 \end{figure}
-
+\paragraph{Le framework Play}
 Le nouvel espace recruteur est géré en backend via le framework Play! dans sa dernière version (2.4.2) et sous le langage Scala.
 Il s'agit d'un couple qui permet d'écrire du code rapidement et de façon maintenable.
 Play est l'un des framework les plus connus dans le monde Java et offre de nombreux avantages:
@@ -28,6 +28,17 @@ Play est l'un des framework les plus connus dans le monde Java et offre de nombr
 \end{itemize}
 Un des points négatifs de ce choix en backend est l'utilisation de fait obligatoire de SBT qui nous a posé de nombreux problèmes.
 En effet, cet outil était souvent lent, compliqué d'utilisation et ralentissait souvent le développement notamment via ses résolutions de dépendances interminables.
+%-------------------------------------------------------------------------
+%TODO
+\paragraph{Scala}
+Scala a été le langage choisi pour le développement de l'espace recruteur pour sa flexibilité et sa richesse.
+Il s'agit d'un langage permettant d'implémenter des fonctionnalités complexes, notamment liées à l'asynchronisme, tout en maintenant un code clair et de qualité.
+Ce langage a aussi permi d'utiliser la puissance d'Akka ainsi que de nombreuses librairies propres à son écosystème et à celui de Java.
+\paragraph{Akka}
+Cadremploi utilise Akka pour diffuser des événements de manière asynchrone au sein des applications Espace Recruteur et Backoffice.
+Akka est aussi utilisé pour programmer l'exécution de scripts récurrents.
+
+%-------------------------------------------------------------------------
 \subsubsection{Frontend}
 \label{subs:Frontend}
 \begin{figure}[h]
@@ -42,6 +53,11 @@ Ce choix de technologie peut être soutenu pour les points suivants:
   \item Angular permet une maintenabilité de l'application aisée, notamment en demandant une structure de type MVC au développeur, ainsi qu'en utilisant du HTMl, qui est déclaratif, pour définir l'interface utilisateur.
   \item Il s'agit de plus d'un framework flexible puisqu'il est possible de composer une application en
 \end{itemize}
+
+
+\paragraph{}
+Cette stack reactive assure à l'équipe Cadremploi une consistence ainsi qu'une clareté architecturale.
+Elle permet la création d'une application responsive et fiable, donnant aux utilisatuers et aux clients une confiance résidant dans son architecture et son implémentation.
 
 \subsection{Environnements et outils}
 \paragraph{IntelliJ}
@@ -81,5 +97,5 @@ Plusieurs environnements de développement sont utilisés par Cadremploi comme p
   \item{Environnement de'intégration}, il s'agit d'un environnement supplémentaire qui est préféré pour les tests fait sur l'infrastructure du projet.
 \end{itemize}
 J'ai été habitué durant ma scolarité à l'EISTI à utiliser la majorité des outils présentés précédemment puisque j'étais uniquement étranger à Jenkins.
-J'ai malgré tout grandement progressé dans mon utilisation de ces outils et particulièrement pour Git que j'ai redécouvert; le projet auquel je participais differais grandement en taille de ceux auquels j'avais contribué auparavant.
+J'ai malgré tout grandement progressé dans leur utilisation et particulièrement pour Git que j'ai redécouvert; le projet auquel je participais differais grandement en taille de ceux auquels j'avais contribué auparavant.
 %Potentiellement, Rundeck, Kibana, Puppet.
