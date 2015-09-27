@@ -22,7 +22,7 @@ Play est l'un des framework les plus connus dans le monde Java et offre de nombr
   \item En plus de s’appuyer sur du code à typage statique, Play propose la sécurité du typage à d’autres endroits et notamment sur les templates ou sur le routage des différents contrôleurs.
   Un certain nombre de problèmes sont alors mis en lumière directement à l’étape de la compilation.
   \item Il permet d'exécuter des tests, notamment sur la couche web à plusieurs niveaux:
-  On peut par exemple tester un contrôleur en démarrant un serveur web (donc via HTTP) ou, sans le démarrer, en appelant simplement le contrôleur avec le contexte qui va bien, le tout de manière simple et rapide à l’exécution.
+  On peut par exemple tester un contrôleur en démarrant un serveur web (donc via HTTP) ou, sans le démarrer, en appelant simplement le contrôleur avec le bon contexte, le tout de manière simple et rapide à l’exécution.
   \item Il est sans état et basé sur des entrées sorties non bloquantes et permet ainsi une capacité à monter en charge très intéressante
   \item Il supporte nativement REST, JSON, Websocket entre autres et se présente donc comme un framework moderne
 \end{itemize}
@@ -38,7 +38,7 @@ Ce langage a aussi permi d'utiliser la puissance d'Akka ainsi que de nombreuses 
 Cadremploi utilise Akka pour diffuser des événements de manière asynchrone au sein des applications Espace Recruteur et Backoffice.
 Akka est aussi utilisé pour programmer l'exécution de scripts récurrents.
 
-%-------------------------------------------------------------------------
+%--------------------------------------------------------------
 \subsubsection{Frontend}
 \label{subs:Frontend}
 \begin{figure}[h]
@@ -51,13 +51,13 @@ Du côté front, l'équipe a utilisé le framework AngularJS ainsi que la librai
 Ce choix de technologie peut être soutenu pour les points suivants:
 \begin{itemize}
   \item Angular permet une maintenabilité de l'application aisée, notamment en demandant une structure de type MVC au développeur, ainsi qu'en utilisant du HTMl, qui est déclaratif, pour définir l'interface utilisateur.
-  \item Il s'agit de plus d'un framework flexible puisqu'il est possible de composer une application en
+  \item Il s'agit de plus d'un framework flexible puisqu'il est possible de composer une application en prototypant des composants qui sont de plus facilement testables.
 \end{itemize}
 
 
 \paragraph{}
 Cette stack reactive assure à l'équipe Cadremploi une consistence ainsi qu'une clareté architecturale.
-Elle permet la création d'une application responsive et fiable, donnant aux utilisatuers et aux clients une confiance résidant dans son architecture et son implémentation.
+Elle permet la création d'une application responsive et fiable, donnant aux utilisateurs et aux clients une confiance résidant dans son architecture et son implémentation.
 
 \subsection{Environnements et outils}
 \paragraph{IntelliJ}
