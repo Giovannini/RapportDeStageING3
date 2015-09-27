@@ -1,15 +1,15 @@
 \section{Architecture de l'application}
 \label{sec:Architecture de l'application}
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 L'espace recruteur est dispose d'une architecture interne assez singulière et je n'avais jamais eu à faire à ce genre d'application auparavant.
 En effet, l'équipe Cadremploi a mis en place un modèle d'architecture de type CQRS couplé à une gestion d'état basé sur de l'Event Sourcing.
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \paragraph{CQRS: Command Query Responsibility Seggregation}
 \label{par:CQRS: Command Query Responsibility Seggregation}
 Dans les systèmes de gestion de donnée traditionnels, les commandes, c'est à dire la mise à jour des données, et les requêtes son exécutées sur un seul regroupement d'entitées regroupées dans une unique base de donnée.
 CQRS est un modèle d'architecture plutôt récent dont le principe repose, comme son nom l'indique, sur la séparation entre l'écriture et la lecture de l'information.
 Nous avons suivi lors du développement de l'espace recruteur ce pattern puisque la séparations des composants de traitement (les "commands") et de restitution (les "queries") de l'information offrait une architecture très intéressante de laquelle nous avons tiré de nombreux bénéfices tels que la suppression du risque d'effets de bord ou l'allègement des classes de service.
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \paragraph{Event Sourcing}
 \label{par:Event Sourcing}
 La gestion commune de l'état d'un système consiste à enregistrer l'état courant des objets le composant et de reporter chaque changement effectué sur le système en modifiant directement son état, notamment via une mise à jour en base de donnée.
@@ -17,11 +17,11 @@ L'idée fondamentale de l'Event Sourcing est d'assurer que chaque changement app
 Ce n'est plus l'état du système qui est enregistré mais les événements qui ont mené le système à l'état dans lequel il est actuellement.
 Cette façon de penser permet notamment d'obtenir un log complet de tous les changements effectués, et donc une traçabilité ainsi qu'une aisance de debug importante.
 Il est ainsi possible de pouvoir reconstruire tous les états passés de l'application.
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \paragraph{}
 Je vais présenter dans cette partie ce type singulier d'architecture, montrer la façon dont il permet de mettre en place un système extensible et distribuable et enfin expliquer la façon dont elle a été mise en place sur la nouvelle version de l'espace recruteur de cadremploi.fr.
 
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 \input{"Chapters/Chapter3/architecture/organisation"}
 \input{"Chapters/Chapter3/architecture/implementation"}
-%----------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
