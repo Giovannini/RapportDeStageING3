@@ -4,7 +4,7 @@
 \subsection{Implémentation}
 \label{sub:Implémentation}
 L'équipe Cadremploi a été en mesure de mettre en place cette architecture particulièrement intéressante dans le projet Espace Recruteur en se basant sur plusieurs concepts tirés du Domain Driven Design (DDD) et en utilisant diverses technologies récentes.
-Notamment, l'utilisation des acteurs Akka a permi une gestion confortable et performante des événements que je traiterai dans les parties suivantes et l'utilisation d'ElasticSearch a offert une rapidité en lecture importante.
+Notamment, l'utilisation des acteurs Akka a permis une gestion confortable et performante des événements que je traiterai dans les parties suivantes et l'utilisation d'ElasticSearch a offert une rapidité en lecture importante.
 
 %-------------------------------------------------------------------------
 \subsubsection{La séparation effective de la lecture et de l'écriture}
@@ -16,11 +16,17 @@ Cette utilisation de technologies dédiées est ainsi bien plus performant pour 
 \paragraph{L'écriture}
 \label{par:L'écriture}
 Les données sont stockées sous forme d'événements dans une base de données PostgreSQL et toute la partie écriture de l'application se fait sur cette base.
-Les données ne peuvent y être qu'insérées (append only), c'est à dire que les données déjà présente ne sont jamais modifiées.
-Une ligne de cette base représente un événement et contient ainsi la donnée relative à cet événement, sa date d'application sur le système ainsi que l'identifiant de l'aggrégat sur lequel il s'applique.
+Ces événements ne peuvent y être qu'insérées (append only), c'est à dire que les données déjà présentes ne sont jamais modifiées.
+Une ligne de cette base représente donc un événement et contient ainsi la donnée relative à cet événement, sa date d'application sur le système ainsi que l'identifiant de l'aggrégat sur lequel il s'applique.
 C'est ainsi sur cette base que repose la structure d'Event Sourcing de notre application.
-En effet, l'idée fondamentale de l'Event Sourcing est qu'en enregistrant chaque événements survenant sur un système, on peut retrouver l'état de ce système à tout instant; cette base est la liste de tous les événements ayant eu lieu depuis le démarrage de l'application et est donc centrale à notre application.
-% TODO réplication
+En effet, l'idée fondamentale de l'Event Sourcing est qu'en enregistrant chaque événement survenant sur un système, on peut retrouver l'état de ce système à tout instant; cette base est la liste de tous les événements ayant eu lieu depuis le démarrage de l'application et est donc centrale à notre application.
+C'est alors en aggrégeant tous les événements ayant eu lieu jusqu'à un instant t propres à une offre, une entreprise, mais plus généralement un aggrégat, qu'on arrive à se représenter l'état de cet aggrégat à l'instant t.
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{Pictures/EventSourcing/events.png}
+    \caption{Il est possible de connaître l'état d'un aggrégat en aggrégeant les événements s'y référant}
+  \end{center}
+\end{figure}
 %-------------------------------------------------------------------------
 \subparagraph{Cohérence de la base}
 Comme expliqué précédemment, plusieurs contrôles sont effectués avant la validation d'une commande pour assurer la validité de l'information insérée et donc la cohérence de la base.
@@ -43,9 +49,9 @@ Le traitement interne de l'action ne doit pas ralentir l'envoi de ce feedback.
 %-------------------------------------------------------------------------
 \subparagraph{Consistence des données}
 Il est nécessaire que les données de la couche de lecture soient constamment mises à jour de manière à rester consistantes avec les données présentes dans la base de données PostgreSQL sans avoir pour autant à l'interroger.
-La souplesse offerte par Akka et sa gestion asynchrone des acteurs permet une mise à jour non bloquante de l'index ElasticSearch.
-Cela permet d'offrir à l'utilisateur un feedback immédiat, mais que la mise à jour de l'index ElasticSearch est différée.
-Concrètement, on peut affirmer que l'équipe Cadremploi a choisi d'avoir parfois du retard au niveau de sa couche de lecture.
+La souplesse offerte par Akka et sa gestion asynchrone des acteurs permettent une mise à jour non bloquante de l'index ElasticSearch.
+Cela permet d'offrir à l'utilisateur un feedback immédiat, mais la mise à jour de l'index ElasticSearch est pour ce faire différée.
+L'équipe Cadremploi a en effet choisi d'accepter du retard au niveau de sa couche de lecture pour favoriser l'instantanéité de sa couche d'écriture.
 Par exemple, une modification du titre d'une offre depuis son espace recruteur ne pourra être visible sur le backoffice qu'une ou deux secondes après la modification effective.
 En effet, pour garantir un retour rapide à l'utilisateur, donc maximiser la réactivité de mon système, la cohérence des données est remise à plus tard (quelques milli-secondes plus tard).
 %-------------------------------------------------------------------------
@@ -67,7 +73,7 @@ Plusieurs outils sont utilisés de manière à faire fonctionner ce modèle, je 
 Akka est un outil se basant sur le modèle des acteurs de manière à offrir une plate-forme permettant de construire des applications concurrentes et scalables.
 Ce modèle d'Acteurs permet une abstraction de haut niveau pour implémenter des services concurrents et parallèles, des modèles événementiels performants et non bloquants.
 C'est justement ce dont Cadremploi a besoin, puisque le nombre d'utilisateur et donc d'interactions avec le système tendent à être importants.
-L'abstraction qu'offre Akka et son modèle d'acteurs couplé à l'utilisation du langage Scala a permi d'écrire un code élégant et performant.
+L'abstraction qu'offre Akka et son modèle d'acteurs couplé à l'utilisation du langage Scala a permis d'écrire un code élégant et performant.
 \paragraph{Kafka}
 \label{par:Kafka}
 Kafka est un service offrant la fonction de système de message de type publish/subscribe partitionné et répliqué.
@@ -77,8 +83,8 @@ Il permet un traitement en temps réel de la donnée mais offre aussi la possibi
     \includegraphics[width=0.15\textwidth]{Pictures/kafka_logo.jpg}
   \end{center}
 \end{wrapfigure}
-Cet outil est utilisé au sein de Cadremploi puisqu'il offre un bus de données permettant, à la réception d'une commande, de publier un événement (publish), et à chaque projection ayant souscrit à ce type d'événement (subscribe), de le recevoir et d'agir en fonction de son contenu.
-Akka gère généralement ça grâce à son implementation d'un EventBus, mais l'application Cadremploi a besoin de discuter avec des applications externes, notamment le Backoffice mentionné précédemment, et c'est Kafka qui fait le lien entre ces différentes applications.
+Cet outil est utilisé au sein de Cadremploi puisqu'il offre un bus de données permettant, à la réception d'une commande, de publier un événement (publish), et à chaque projection ayant souscrit à ce type d'événements (subscribe), de le recevoir et d'agir en fonction de son contenu.
+Akka gère généralement cela grâce à son implementation d'un EventBus, mais l'application Cadremploi a besoin de discuter avec des applications externes, notamment le Backoffice mentionné précédemment, et c'est Kafka qui fait le lien entre ces différentes applications.
 
 
 
@@ -90,11 +96,16 @@ Cela peut s'agir de son profil utilisateur, des entreprises qu'il gère ou bien 
 %-------------------------------------------------------------------------
 \paragraph{L'interface}
 \label{par:L'interface}
-%%TODO image d'un champ rempli, de la requête Json générée et de l'envoi à l'application
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{Pictures/EventSourcing/gestion_command.jpg}
+    \caption{Une fois le champ rempli, une commande est envoyé à l'application}
+  \end{center}
+\end{figure}
 %-------------------------------------------------------------------------
 \subparagraph{Envoi d'une commande}
 \label{subp:Envoi d'une commande}
-L'interface de l'espace recruteur est pensée de sorte à ce que le recruteur qui l'utilise envoit des commandes à l'application de manière transparente.
+L'interface de l'espace recruteur est pensée de sorte à ce que le recruteur qui l'utilise puisse envoyer des commandes à l'application de manière transparente.
 En effet, à chaque champ du formulaire rempli, une requête Ajax contenant les informations relatives à la modification effectuée est envoyée à l'application.
 Concrètement, on utilise un élément d'AngularJS appelé watcher permettant d'enregistrer un callback à exécuter lorsqu'une expression ciblée est modifiée.
 Cette technologie permet des appels asynchrones à la fonction de callback et offre donc une fluidité d'utilisation à l'application.
@@ -123,16 +134,27 @@ L'utilisation du pattern Command est rendu possible grâce à plusieurs objets.
 %-------------------------------------------------------------------------
 \subparagraph{Les objets Command}
 \label{subp:Les objets Command}
-Comme expliqué précédemment, l'équipe Cadremploi a représenté une commande est un appel de méthode encapsulé dans un objet.
+Comme expliqué précédemment, l'équipe Cadremploi a représenté une commande par un appel de méthode encapsulé dans un objet.
 Nous avons choisi de décorréler l'exécution de l'action et la description de l'intention de l'utilisateur.
 Concrètement, cela signifie qu'une classe se charge de la définition de la commande, tandis qu'une seconde traitera l'exécution de l'action.
-%%TODO schéma UML de la séparation Command/CommandHandler
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=1\textwidth]{Pictures/EventSourcing/separation_command_et_handler.png}
+    \caption{Code Scala décrivant la séparation de la définition et de l'action}
+  \end{center}
+\end{figure}
 Ce découpage en Command et CommandHandler est légèrement plus verbeux, mais permet néanmoins de réduire la taille des classes que nous écrivons et offre la possibilité d'un traitement asynchrone.
 En effet, on peut imaginer placer les commandes sur une queue qui sera traitée par les CommandHandlers dès que la ressource nécessaire à leur exécution se trouve disponible.
-Une logique similaire qui n'est pas encore exploitée par Cadremploi serait d'envisager un mode déconnecté puisqu'il est possible d'exécuter des commandes en local qui seront envoyés sur le serveur et donc traitées effectivement dès que la connexion est récupérée.
+Une logique similaire qui n'est pas encore exploitée par Cadremploi serait d'envisager un mode déconnecté puisqu'il est possible d'exécuter des commandes en local qui seront envoyées sur le serveur et donc traitées effectivement dès que la connexion est récupérée.
 %-------------------------------------------------------------------------
 \subparagraph{Le command executor}
 \label{subp:Le command executor}
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{Pictures/EventSourcing/command_executor.png}
+    \caption{Schéma de fonctionnement du CommandExecutor}
+  \end{center}
+\end{figure}
 Un exécuteur de commande (ou "CommandExecutor") est une entitée créée pour être utilisée à l'exécution de chaque commande.
 Cette classe expose une méthode permettant d'exécuter une commande donnée.
 Cet exécuteur se charge de:
@@ -159,21 +181,23 @@ Chaque information provenant de son profil ou de ses annonces provient d'une que
 De même que les commandes, les queries sont aussi des actions encapsulées dans des objets dans l'Espace Recruteur.
 Elles sont pour leur part découpées en 3 objets différents:
 \begin{itemize}
-  \item Query qui est la définition de la requête, il s'agit généralement d'un objet vide, uniquement caractérisé par son nom qui est, tout comme la commande, très explicite.
-  \item QueryResult, qui est un conteneur pour le résultat de la requête.
+  \item Query est la définition de la requête, il s'agit généralement d'un objet vide, uniquement caractérisé par son nom qui est, tout comme la commande, très explicite.
+  \item QueryResult est un conteneur pour le résultat de la requête.
   Il s'agit donc d'une classe contenant un ou plusieurs objets.
-  \item QueryHandler, qui tout comme les CommandHandler, sont des objets qui contiennent la méthode d'application de la requête.
+  \item QueryHandler, tout comme les CommandHandler, est un objet qui contient la méthode d'application de la requête.
   Il s'agit d'une méthode requêtant un index ElasticSearch directement et encapsulant son résultat dans un objet QueryResult.
-  Nous avons en effet vu que les données contenus dans les indexes sont utilisable directement et qu'aucun contrôle n'est fait.
+  Nous avons en effet vu que les données contenues dans les indexes sont utilisables directement et qu'aucun contrôle n'est fait.
 \end{itemize}
 Le résultat des queries est sérialisé puis directement envoyé au front.
 %-------------------------------------------------------------------------
 \subparagraph{Le query executor}
 De même que le CommandExecutor, le QueryExecutor est une entité exposant une méthode permettant d'exécuter une requête donnée.
 Puisqu'aucune modification n'est faite par une "query", la QueryExecutor se charge uniquement de récupérer le handler associé à la requête puis de renvoyer le QueryResult associé.
+Elle va lire l'information recherchée dans la projection qui convient et retourner ainsi extrêmement rapidement la réponse à la requête.
+En effet, nous avons vu que les projections aggrègent des objets taillés sur mesure pour ces requêtes et qu'aucun traitement supreflu n'est fait sur la donnée.
 
 \paragraph{}
-Les exécuteurs de requêtes et de commandes sont utilisées comme des courroies par lesquelles passent toutes les actions de lecture et d'écriture faite sur le système.
+Les exécuteurs de requêtes et de commandes sont utilisés comme des courroies par lesquelles passent toutes les actions de lecture et d'écriture faites sur le système.
 Il est ainsi très simple de contrôler à haut niveaux toutes ces transactions.
 
 \subsection{Bilan}
@@ -188,16 +212,16 @@ L'utilisation d'outil récents comme Akka et Kafka permettent une communication 
 %-------------------------------------------------------------------------
 \subsection{Critiques du modèle}
 %-------------------------------------------------------------------------
-Lors de l'implémentation d'une telle architecture, l'équipe Cadremploi s'est heurté à des problèmes que le modèle théorique ne laissait pas réellement présager.
-En effet, le modèle implémenté par notre équipe est plutôt récent et peu d'autres entreprises s'y sont risqués.
+Lors de l'implémentation d'une telle architecture, l'équipe Cadremploi s'est heurtée à des problèmes que le modèle théorique ne laissait pas réellement présager.
+En effet, le modèle implémenté par notre équipe est plutôt récent et peu d'autres entreprises s'y sont risquées.
 La documentation et les retours d'expérience à ce sujet sont ainsi limités.
 Je vais tenter de présenter les difficultés entraînées par ce modèle d'architecture, au delà de son apparence inhabituelle et du changement de mode de réflexion qu'elle demande.
 \subsubsection{L'exemple de la migration des événements}
 %-------------------------------------------------------------------------
 \paragraph{}
-Une application reste rarament figée au cours du temps, et le jeune Espace Recruteur de Cadremploi n'échappe pas à cette règle.
+Une application reste rarement figée au cours du temps, et le jeune Espace Recruteur de Cadremploi n'échappe pas à cette règle.
 Ainsi, les événements écrits à la naissance de l'application sont voués à changer au cours du temps et des modifications y seront apportées.
-Il est quasiment certain que les événements existant aujourd'hui seront modifiés, enrichis voire même supprimés pour certain, et qu'ils ne peuvent donc rester totalement statique en base.
+Il est quasiment certain que les événements existant aujourd'hui seront modifiés, enrichis voire même supprimés pour certain, et qu'ils ne peuvent donc rester totalement statiques en base.
 La migration des événements contenus dans la base est nécessaire de manière à ne pas figer le comportement de l'application ni devoir être gêné continuellement par des comportements obsolètes dans le futur.
 J'ai ainsi travaillé, avec le reste de l'équipe, sur un outil de migration des événements de notre base dans le cas d'une modification de la sorte.
 
@@ -205,11 +229,11 @@ J'ai ainsi travaillé, avec le reste de l'équipe, sur un outil de migration des
 \paragraph{}
 L'équipe Cadremploi a écrit ses événements sous forme de classes Scala, expressives, utilisées ainsi lors de la réception de la commande, de la réception par les projections, de l'écriture en base...
 Il s'agit d'objets à usage multiple, et leur modification entraîne des changements importants.
-En effet il est nécessaire de modifier les événements déjà présents en base de manière à ce qu'ils soient désérialisables même dans leur nouvelle version.
+En effet il est nécessaire de modifier les événements déjà présents en base de manière à ce qu'ils soient dé-sérialisables même dans leur nouvelle version.
 Pourtant, cette pratique est contraire à la non-modification des données de cette base.
 %-------------------------------------------------------------------------
 \paragraph{}
-Une solution consistante avec le modèle serait de rajouter des événements "de migration" à la suite de ceux existant permettant de modifier les projections.
+Une solution consistante avec le modèle serait de rajouter des événements "de migration" à la suite de ceux existants permettant de modifier les projections.
 Mais si une projection, suite à un problème technique, se doit d'être rejouée, il sera nécessaire de lire les données depuis la base des événements pour la reconstruire.
 À ce moment là, la désérialisation des événements pour que l'application puisse les interpréter sera nécessaire; leur version ayant changé, cette désérialisation ne sera plus possible.
 Il est alors impossible de rejouer correctement une projection via cette méthode.
@@ -223,13 +247,13 @@ Cela entraînerait certainement des complications à chiffrer puisque le code pe
 %-------------------------------------------------------------------------
 \paragraph{}
 Le modèle CQRS couplé à de l'Event Sourcing offre de très nombreux bénéfices.
-Il offre notamment beaucoup de clarté de code mais multiplie pour ce faire les lignes nécessaire à l'implémentation de la solution.
+Il offre notamment beaucoup de clarté de code mais multiplie pour ce faire les lignes nécessaires à l'implémentation de la solution.
 Manquant de documentation sur le sujet, certains éléments de simplification peuvent paraître intéressants à première vue, mais avoir une conséquence inattendue et gênante.
 En plus de ce cas de migration des événements demandant la modification de la base et donc de l'historique, qui devrait demeurrer immutable, de l'application, des dérives du modèle telles que la création de commandes avec une valeur de retour par exemple, sont survenues au cours du développement de l'Espace Recruteur.
 %-------------------------------------------------------------------------
 \paragraph{}
 Ce type d'architecture étant récente, l'implémentation du modèle CQRS + Event Sourcing a demandé à notre équipe la création d'une sorte de framework maison.
-Cette création, quasi expérimentale et parallèle au développement de l'application Espace Recruteur, s'est retrouvé rapidement bloquante pour la validation de nouvelles tâches.
+Cette création, quasi expérimentale et parallèle au développement de l'application Espace Recruteur, s'est retrouvée rapidement bloquante pour la validation de nouvelles tâches.
 En effet, des éléments innatendus, car peu ou pas mentionné dans les documents sur lesquels se base notre équipe pour mettre en place ce framework, ont demandé parfois plusieurs semaines de développement.
 %-------------------------------------------------------------------------
 \paragraph{}

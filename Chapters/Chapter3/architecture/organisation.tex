@@ -1,13 +1,13 @@
 \subsection{Organisation d'une application basée sur une telle architecture}
 %-------------------------------------------------------------------------------
 \paragraph{}
-Dans une application, les besoins fonctionnels et non fonctionnels peuvent être différents selon que l'on s'intéresse à ses composantes de lecture ou d'écriture.
+Dans une application, les besoins fonctionnels et non fonctionnels peuvent être différents si on s'intéresse à ses composantes de lecture ou d'écriture.
 Dans le cas d'une IHM, il est important que l'information que l'on souhaite afficher soit disponible à l'utilisateur sans qu'il n'ait à croiser lui-même différentes informations présentes sur différents écrans.
 Il est alors nécessaire d'aggréger et de filtrer les données et donc de les dénormaliser lorsqu'elles sont destinées à la consultation.
 D'autre part, lorsqu'un utilisateur souhaitera exécuter une action d'écriture, l'ensemble des données manipulées sera plus réduit et la problématique ne sera plus la même.
 La complexité se trouvera plutôt dans la vérification du respect de règles et il sera nécessaire d'utiliser des entités d'association pour ce faire.
 Ainsi, on privilégie dans ce cas une normalisation des données ainsi que leur intégrité.
-On voit alors que les besoins en écriture sont globalement transactionnels et une garantie de cohérence des données ainsi que leur normalisation est nécessaire, tandis qu'en lecture, les besoins sont davantage en dénormalisation des données ainsi qu'en scalabilité.
+On voit alors que les besoins en écriture sont globalement transactionnels et une garantie de cohérence des données ainsi que leur normalisation sont nécessaires, tandis qu'en lecture, les besoins sont davantage en dénormalisation des données ainsi qu'en scalabilité.
 %-------------------------------------------------------------------------------
 \paragraph{}
 \begin{figure}[h]
@@ -28,21 +28,21 @@ Clarifions ainsi quelques termes que j'ai appris à connaître au cours de mon s
 %-------------------------------------------------------------------------------
 \paragraph{Le domaine}
 \label{par:Le domaine}
-Le domaine est la zone où est concentré toute la connaissance métier de l'application.
-On y trouve ainsi les objets nécessaires à l'application des règles métiers (la taille minimale pour un nom d'utilisateur, le nombre de chiffre dans un numéro de SIRET, ...) et pour des contrôles nécessaires à chaque actions ("je ne peux pas modifier une offre qui ne m'appartient pas"), des agrégats et des services notamment.
+Le domaine est la zone où est concentrée toute la connaissance métier de l'application.
+On y trouve ainsi les objets nécessaires à l'application des règles métiers (la taille minimale pour un nom d'utilisateur, le nombre de chiffre dans un numéro de SIRET, ...) et pour des contrôles nécessaires à chaque action ("je ne peux pas modifier une offre qui ne m'appartient pas"), des agrégats et des services notamment.
 %-------------------------------------------------------------------------------
 \paragraph{Les aggrégats}
 \label{par:Les aggrégats}
 Un aggrégat est un regroupement d'objets tirés du domaine qui est traité comme une unité.
 Il est généralement repésenté par une classe possédant un identifiant unique dans toute l'application mais on peut aussi trouver des représentations d'aggrégats via plusieurs classes.
-Dans ce second cas, une d'entre elle est dite classe racine et tout accès à l'aggrégat par l'extérieur se fait via cette classe tandis que toutes les autres restent interne à l'agrégat.
+Dans ce second cas, une d'entre elle est dite classe racine et tout accès à l'aggrégat par l'extérieur se fait via cette classe tandis que toutes les autres restent internes à l'agrégat.
 Cette entité contient ainsi la logique du domaine (\ref{par:Le domaine}) et permet d'effectuer des contrôles.
 %-------------------------------------------------------------------------------
 \paragraph{Les repositories (ou dépôts)}
 \label{par:Les repositories (ou dépôts)}
 Les différentes instances des aggrégats sont stockées dans un objet appelé repository (dépôt en français).
 Ces objets servent d'intermédiaires entre le domaine (\ref{par:Le domaine}) et la base de donnée.
-On retrouve dans ces objets des méthodes du type 'save' qui permet de sauvegarder les changements relatifs à un aggrégat ou 'getById' qui permet de récupérer un aggrégat particulier.
+On retrouve dans ces objets des méthodes du type 'save' permettant de sauvegarder les changements relatifs à un aggrégat ou 'getById', récupérant un aggrégat particulier.
 
 %-------------------------------------------------------------------------
 \subsubsection{La couche de modification des données: Command}
@@ -53,13 +53,13 @@ Cette couche concentre toutes les modifications des données, qu'il s'agisse de 
 Une commande représente une action destinée à être exécutée, une intention, et n'est pas une simple demande d'altération de donnée.
 Généralement, une commande est représentée comme un appel de méthode encapsulée dans un objet; elle porte un nom explicite et ses champs contiennent les différents paramètres de l'action.
 Dans le cas de l'espace recruteur du site Cadremploi.fr, les commandes ont pour but d'enregistrer les altérations effectuées par les événements provenant du côté client, et on retrouve des commandes nommées 'ModifierTitrePosteCommand' ou 'PayerOffreCommand' par exemple, permettant de modifier le titre du poste dans l'annonce ou de payer l'offre saisie respectivement.
-Ces commandes doivent être le plus atomique possible et l'expressivité de leur nom est important puisqu'il permet de clarifier la cause de la modification des données.
+Ces commandes doivent être le plus atomique possible et l'expressivité de leur nom est importante puisqu'elle permet de clarifier la cause de la modification des données.
 \paragraph{}
 %-------------------------------------------------------------------------------
 Une commande récupère via des repositories les agrégats qu'elle vise.
 Via les informations contenues dans ces agrégats et potentiellement à l'aide de différents services, les contrôles nécessaires à la validation de la commande peuvent être appliqués.
 Une fois que les différents contrôles sur la commande faits, on génère des événements de modification.
-Ces événements sont utilisés pour appliquer l'effet de la commande sur l'aggrégat, mais aussi pour informer la couche de lecture des données qu'une modification a eu lieu.
+Ces événements sont utilisés pour appliquer l'effet de la commande sur l'aggrégat, mais aussi pour informer la couche de lecture des données qu'une modification a eue lieu.
 Cette procédure permet de maîtriser totalement l'impact de chaque action sur le système.
 La façon d'effectuer la répercussion des modifications propres à la commande peut varier selon les architectures, mais c'est ainsi que cela fonctionne chez Cadremploi.
 L'essentiel ici est de ne pas oublier de mettre à jour la partie de lecture lorsqu'un changement survient pour éviter toute incohérance entre les couches de lecture et d'écriture.
@@ -80,16 +80,16 @@ Cette couche fonctionne ainsi uniquement en lecture seule et aucune modification
 En effet le besoin représenté ici est celui d'une lecture dans un cas d'utilisation bien précis, l'objectif est d'aller extrêmement vite.
 Le pattern Query consiste alors à exécuter une requête précise en base et de restituer un objet de type Data Transfer Object (DTO) concis qui pourra être utilisé directement.
 Cela signifie que les contrôles sont réduits au minimum et que les DTOs utilisés sont des objets représentant exactement et uniquement le besoin en lecture, généralement des besoins IHM.
-Cette méthode permet de récupérer seulement les données dont on a besoin en une fois, en se passant ainsi de parcourir plusieurs tables à travers desquelles les données seraient éparpillées.
+Cette méthode permet de récupérer seulement les données dont on a besoin en une fois, en se passant ainsi de parcourir plusieurs tables à travers lesquelles les données seraient éparpillées.
 %-------------------------------------------------------------------------------
 \paragraph{Projections}
 L'utilisation de projections permet de construire ces DTO taillés sur mesure pour l'IHM.
 La projection est un concept aussi simple qu'important de l'Event Sourcing.
 Le but d'une projection est de dériver un état d'un flux d'événements.
-La projections souscris à un ou plusieurs flux d'événements de manière à aggréger les données qui l'intéresse uniquement.
+La projections souscrit à un ou plusieurs flux d'événements de manière à aggréger les données qui l'intéresse uniquement.
 Elle dérive alors des informations particulières des événements émis depuis la couche de modification des données de manière à construire les DTO qui seront utilisés dans la couche lecture.
 En répercutant les changements qu'elles perçoivent, les projections mettent ainsi à jour la couche de lecture symétriquement à la couche d'écriture.
-Un de leur intérêt et qu'il est possible de projeter, pour tout flux d'événement, ces données à faire persister sur tout type de représentation structurelle, qu'il s'agisse d'une base de donnée SQL, NoSQL ou même un stockage en mémoire qui sera reconstruit depuis un flux d'événement local au redémarrage du serveur.
+Un de leur intérêt est qu'il est possible de projeter, pour tout flux d'événement, ces données à faire persister sur tout type de représentation structurelle, qu'il s'agisse d'une base de donnée SQL, NoSQL ou même un stockage en mémoire qui sera reconstruit depuis un flux d'événement local au redémarrage du serveur.
 %-------------------------------------------------------------------------------
 \paragraph{}
 La construction de l'interface utilisateur se fait ainsi en requêtant ces projections, qui retournent des objets taillés pour être directement utilisés côté front.
@@ -98,10 +98,10 @@ Néanmoins, contrairement à ces dernières, elles n'effectuent strictement aucu
 %-------------------------------------------------------------------------------
 \paragraph{}
 \label{par:Organisation conclusion}
-L'architecture CQRS couplés à de l'Event Sourcing présentée théoriquement ici présente de nombreux avantages.
+L'architecture CQRS couplée à de l'Event Sourcing présentée théoriquement ici présente de nombreux avantages.
 Tout d'abord, le risque d'effet de bord est supprimé puisque les méthodes des services de lecture de donnée ne modifient jamais l'état du système.
 Le développeur peut donc les utiliser sans aucune crainte puisqu'aucun comportement anormal ne se fera ressentir sur le reste du système.
-De plus, le découpage en Command et Query, en plus de rendre indépendant l'implémentation de l'API de l'application de sa dynamique interne, facilite l'exposition des services puisque.
+De plus, le découpage en Command et Query, en plus de rendre indépendant l'implémentation de l'API de l'application de sa dynamique interne, facilite l'exposition des services.
 En effet, les méthodes de lecture sont particulièrement adaptées pour être exposées en HTTP GET et celle d'écriture en POST.
-Cette approche demande néanmoins un certain effort d'adaptation et ajoutes certainement des lignes de code à écrire à l'équipe.
+Cette approche demande néanmoins un certain effort d'adaptation et ajoute certainement des lignes de code à écrire à l'équipe.
 Cela est facilement rattrapé par les bénéfices au niveau de la maintenance du code qui est très expressif, ainsi qu'au niveau de l'utilisation.

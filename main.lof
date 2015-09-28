@@ -1,8 +1,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Strat\IeC {\'e}gie du secteur Emploi\relax }}{5}{figure.caption.22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Le suivi de l'\IeC {\'e}volution du client dans le backoffice\relax }}{10}{figure.caption.41}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Les mesures statistiques propos\IeC {\'e}es sur l'espace recruteur\relax }}{12}{figure.caption.43}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Message d'erreur\relax }}{29}{figure.caption.121}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Message de succes\relax }}{29}{figure.caption.121}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Le suivi de l'\IeC {\'e}volution du client dans le backoffice\relax }}{13}{figure.caption.51}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Les mesures statistiques propos\IeC {\'e}es sur l'espace recruteur\relax }}{14}{figure.caption.54}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Il est possible de conna\IeC {\^\i }tre l'\IeC {\'e}tat d'un aggr\IeC {\'e}gat en aggr\IeC {\'e}geant les \IeC {\'e}v\IeC {\'e}nements s'y r\IeC {\'e}f\IeC {\'e}rant\relax }}{28}{figure.caption.118}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Une fois le champ rempli, une commande est envoy\IeC {\'e} \IeC {\`a} l'application\relax }}{31}{figure.caption.131}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Message d'erreur\relax }}{32}{figure.caption.134}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Message de succes\relax }}{32}{figure.caption.134}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Code Scala d\IeC {\'e}crivant la s\IeC {\'e}paration de la d\IeC {\'e}finition et de l'action\relax }}{32}{figure.caption.137}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Sch\IeC {\'e}ma de fonctionnement du CommandExecutor\relax }}{33}{figure.caption.139}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
