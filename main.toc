@@ -19,10 +19,10 @@
 \contentsline {subsubsection}{\numberline {2.1.1.2}Formation}{6}{subsubsection.23}
 \contentsline {subsubsection}{\numberline {2.1.1.3}Immobilier}{6}{subsubsection.24}
 \contentsline {subsection}{\numberline {2.1.2}M\IeC {\'e}tiers}{7}{subsection.25}
-\contentsline {section}{\numberline {2.2}L'environnement de travail}{7}{section.26}
+\contentsline {section}{\numberline {2.2}Le lieu}{7}{section.26}
 \contentsline {paragraph}{}{7}{section*.27}
 \contentsline {paragraph}{}{7}{section*.28}
-\contentsline {section}{\numberline {2.3}L'entreprise et son informatique}{7}{section.29}
+\contentsline {section}{\numberline {2.3}L'entreprise et son syst\IeC {\`e}me d'information}{7}{section.29}
 \contentsline {subsection}{\numberline {2.3.1}Outils, technologies et m\IeC {\'e}thodes}{7}{subsection.30}
 \contentsline {paragraph}{}{7}{section*.31}
 \contentsline {paragraph}{}{8}{section*.32}
@@ -35,109 +35,109 @@
 \contentsline {subsection}{\numberline {2.4.2}Mon \IeC {\'e}quipe: Cadremploi}{9}{subsection.42}
 \contentsline {paragraph}{}{9}{section*.43}
 \contentsline {paragraph}{}{10}{section*.44}
-\contentsline {chapter}{\numberline {3}\IeC {\^E}tre d\IeC {\'e}veloppeur \IeC {\`a} Cadremploi}{11}{chapter.45}
+\contentsline {chapter}{\numberline {3}\IeC {\^E}tre d\IeC {\'e}veloppeur de Cadremploi}{11}{chapter.45}
 \contentsline {paragraph}{}{11}{section*.47}
 \contentsline {paragraph}{}{11}{section*.48}
 \contentsline {section}{\numberline {3.1}Description g\IeC {\'e}n\IeC {\'e}rale de la nouvelle application}{12}{section.49}
 \contentsline {subsection}{\numberline {3.1.1}Backoffice}{12}{subsection.50}
-\contentsline {subsection}{\numberline {3.1.2}Le panneau de contr\IeC {\^o}le du recruteur}{13}{subsection.52}
-\contentsline {subsubsection}{\numberline {3.1.2.1}Statistiques}{13}{subsubsection.53}
-\contentsline {subsubsection}{\numberline {3.1.2.2}Label qualit\IeC {\'e}}{14}{subsubsection.55}
-\contentsline {subsubsection}{\numberline {3.1.2.3}Event sourcing}{14}{subsubsection.56}
+\contentsline {subsection}{\numberline {3.1.2}Le panneau de contr\IeC {\^o}le du recruteur}{14}{subsection.52}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Statistiques}{14}{subsubsection.53}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Label qualit\IeC {\'e}}{15}{subsubsection.55}
+\contentsline {subsubsection}{\numberline {3.1.2.3}Event sourcing}{15}{subsubsection.56}
 \contentsline {paragraph}{}{15}{section*.57}
 \contentsline {section}{\numberline {3.2}Cahier des charges et fonctionnement g\IeC {\'e}n\IeC {\'e}ral du cycle de d\IeC {\'e}veloppement}{15}{section.58}
 \contentsline {subsection}{\numberline {3.2.1}Contenu du stage}{15}{subsection.59}
-\contentsline {subsection}{\numberline {3.2.2}M\IeC {\'e}thode de management}{15}{subsection.61}
-\contentsline {paragraph}{}{15}{section*.62}
+\contentsline {subsection}{\numberline {3.2.2}M\IeC {\'e}thode de management}{16}{subsection.61}
+\contentsline {paragraph}{}{16}{section*.62}
 \contentsline {paragraph}{Le stand-up meeting}{16}{section*.63}
-\contentsline {paragraph}{Cycle de vie d'une t\IeC {\^a}che}{16}{section*.64}
-\contentsline {paragraph}{Organisation du tableau}{17}{section*.65}
-\contentsline {paragraph}{R\IeC {\'e}f\IeC {\'e}rencement des t\IeC {\^a}ches}{17}{section*.66}
+\contentsline {paragraph}{Cycle de vie d'une t\IeC {\^a}che}{17}{section*.64}
+\contentsline {paragraph}{Organisation du tableau}{18}{section*.65}
+\contentsline {paragraph}{R\IeC {\'e}f\IeC {\'e}rencement des t\IeC {\^a}ches}{18}{section*.66}
 \contentsline {section}{\numberline {3.3}Une \IeC {\'e}quipe nombreuse}{18}{section.67}
-\contentsline {subsection}{\numberline {3.3.1}Revue de code}{18}{subsection.68}
-\contentsline {paragraph}{}{18}{section*.69}
-\contentsline {paragraph}{}{18}{section*.70}
+\contentsline {subsection}{\numberline {3.3.1}Revue de code}{19}{subsection.68}
+\contentsline {paragraph}{}{19}{section*.69}
+\contentsline {paragraph}{}{19}{section*.70}
 \contentsline {paragraph}{}{19}{section*.71}
 \contentsline {paragraph}{}{19}{section*.72}
-\contentsline {subsection}{\numberline {3.3.2}Concertation d'\IeC {\'e}quipe}{19}{subsection.73}
-\contentsline {subsubsection}{\numberline {3.3.2.1}L'exemple de l'utilisation de Git}{19}{subsubsection.74}
-\contentsline {subsubsection}{\numberline {3.3.2.2}Les r\IeC {\'e}unions}{19}{subsubsection.75}
-\contentsline {paragraph}{}{19}{section*.76}
+\contentsline {subsection}{\numberline {3.3.2}Concertation d'\IeC {\'e}quipe}{20}{subsection.73}
+\contentsline {subsubsection}{\numberline {3.3.2.1}L'exemple de l'utilisation de Git}{20}{subsubsection.74}
+\contentsline {subsubsection}{\numberline {3.3.2.2}Les r\IeC {\'e}unions}{20}{subsubsection.75}
+\contentsline {paragraph}{}{20}{section*.76}
 \contentsline {section}{\numberline {3.4}Aper\IeC {\c c}u des technologies et des techniques utilis\IeC {\'e}es}{20}{section.77}
 \contentsline {subsection}{\numberline {3.4.1}Langages}{20}{subsection.78}
 \contentsline {subsubsection}{\numberline {3.4.1.1}Backend}{20}{subsubsection.79}
 \contentsline {paragraph}{Le framework Play}{20}{section*.81}
 \contentsline {paragraph}{Scala}{21}{section*.82}
-\contentsline {paragraph}{Akka}{21}{section*.83}
-\contentsline {subsubsection}{\numberline {3.4.1.2}Frontend}{21}{subsubsection.84}
-\contentsline {paragraph}{}{21}{section*.86}
-\contentsline {subsection}{\numberline {3.4.2}Environnements et outils}{21}{subsection.87}
+\contentsline {paragraph}{Akka}{22}{section*.83}
+\contentsline {subsubsection}{\numberline {3.4.1.2}Frontend}{22}{subsubsection.84}
+\contentsline {paragraph}{}{22}{section*.86}
+\contentsline {subsection}{\numberline {3.4.2}Environnements et outils}{22}{subsection.87}
 \contentsline {paragraph}{IntelliJ}{22}{figure.caption.89}
-\contentsline {paragraph}{Git}{22}{section*.90}
-\contentsline {paragraph}{Jenkins}{22}{figure.caption.92}
-\contentsline {section}{\numberline {3.5}Architecture de l'application}{23}{section.93}
-\contentsline {paragraph}{CQRS: Command Query Responsibility Seggregation}{23}{section*.94}
-\contentsline {paragraph}{Event Sourcing}{23}{section*.95}
+\contentsline {paragraph}{Git}{23}{section*.90}
+\contentsline {paragraph}{Jenkins}{23}{figure.caption.92}
+\contentsline {section}{\numberline {3.5}Architecture de l'application}{24}{section.93}
+\contentsline {paragraph}{CQRS: Command Query Responsibility Seggregation}{24}{section*.94}
+\contentsline {paragraph}{Event Sourcing}{24}{section*.95}
 \contentsline {paragraph}{}{24}{section*.96}
-\contentsline {subsection}{\numberline {3.5.1}Organisation d'une application bas\IeC {\'e}e sur une telle architecture}{24}{subsection.97}
-\contentsline {paragraph}{}{24}{section*.98}
-\contentsline {paragraph}{}{24}{figure.caption.100}
+\contentsline {subsection}{\numberline {3.5.1}Organisation d'une application bas\IeC {\'e}e sur une telle architecture}{25}{subsection.97}
+\contentsline {paragraph}{}{25}{section*.98}
+\contentsline {paragraph}{}{25}{figure.caption.100}
 \contentsline {paragraph}{}{25}{section*.101}
-\contentsline {subsubsection}{\numberline {3.5.1.1}Les concepts tir\IeC {\'e}s du Domain Driven Design}{25}{subsubsection.102}
-\contentsline {paragraph}{Le domaine}{25}{section*.103}
-\contentsline {paragraph}{Les aggr\IeC {\'e}gats}{25}{section*.104}
-\contentsline {paragraph}{Les repositories (ou d\IeC {\'e}p\IeC {\^o}ts)}{25}{section*.105}
-\contentsline {subsubsection}{\numberline {3.5.1.2}La couche de modification des donn\IeC {\'e}es: Command}{25}{subsubsection.106}
-\contentsline {paragraph}{}{25}{section*.107}
-\contentsline {paragraph}{}{26}{section*.108}
-\contentsline {paragraph}{}{26}{section*.109}
-\contentsline {subsubsection}{\numberline {3.5.1.3}La couche de lecture des donn\IeC {\'e}es: Query}{26}{subsubsection.110}
-\contentsline {paragraph}{}{26}{section*.111}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Les concepts tir\IeC {\'e}s du Domain Driven Design}{26}{subsubsection.102}
+\contentsline {paragraph}{Le domaine}{26}{section*.103}
+\contentsline {paragraph}{Les aggr\IeC {\'e}gats}{26}{section*.104}
+\contentsline {paragraph}{Les repositories (ou d\IeC {\'e}p\IeC {\^o}ts)}{26}{section*.105}
+\contentsline {subsubsection}{\numberline {3.5.1.2}La couche de modification des donn\IeC {\'e}es: Command}{26}{subsubsection.106}
+\contentsline {paragraph}{}{26}{section*.107}
+\contentsline {paragraph}{}{27}{section*.108}
+\contentsline {paragraph}{}{27}{section*.109}
+\contentsline {subsubsection}{\numberline {3.5.1.3}La couche de lecture des donn\IeC {\'e}es: Query}{27}{subsubsection.110}
+\contentsline {paragraph}{}{27}{section*.111}
 \contentsline {paragraph}{Projections}{27}{section*.112}
-\contentsline {paragraph}{}{27}{section*.113}
-\contentsline {paragraph}{}{27}{section*.114}
+\contentsline {paragraph}{}{28}{section*.113}
+\contentsline {paragraph}{}{28}{section*.114}
 \contentsline {subsection}{\numberline {3.5.2}Impl\IeC {\'e}mentation}{28}{subsection.115}
-\contentsline {subsubsection}{\numberline {3.5.2.1}La s\IeC {\'e}paration effective de la lecture et de l'\IeC {\'e}criture}{28}{subsubsection.116}
-\contentsline {paragraph}{L'\IeC {\'e}criture}{28}{section*.117}
+\contentsline {subsubsection}{\numberline {3.5.2.1}La s\IeC {\'e}paration effective de la lecture et de l'\IeC {\'e}criture}{29}{subsubsection.116}
+\contentsline {paragraph}{L'\IeC {\'e}criture}{29}{section*.117}
 \contentsline {subparagraph}{Coh\IeC {\'e}rence de la base}{29}{section*.119}
-\contentsline {paragraph}{La lecture}{29}{section*.120}
-\contentsline {subparagraph}{Mise \IeC {\`a} jour asynchrone de la couche}{29}{section*.121}
-\contentsline {subparagraph}{Consistence des donn\IeC {\'e}es}{29}{section*.122}
+\contentsline {paragraph}{La lecture}{30}{section*.120}
+\contentsline {subparagraph}{Mise \IeC {\`a} jour asynchrone de la couche}{30}{section*.121}
+\contentsline {subparagraph}{Consistence des donn\IeC {\'e}es}{30}{section*.122}
 \contentsline {paragraph}{}{30}{section*.123}
-\contentsline {subsubsection}{\numberline {3.5.2.2}Reste de l'infrastructure}{30}{subsubsection.124}
-\contentsline {paragraph}{Akka}{30}{figure.caption.126}
-\contentsline {paragraph}{Kafka}{30}{section*.127}
+\contentsline {subsubsection}{\numberline {3.5.2.2}Reste de l'infrastructure}{31}{subsubsection.124}
+\contentsline {paragraph}{Akka}{31}{figure.caption.126}
+\contentsline {paragraph}{Kafka}{31}{section*.127}
 \contentsline {subsubsection}{\numberline {3.5.2.3}Les commandes}{31}{subsubsection.129}
 \contentsline {paragraph}{L'interface}{31}{figure.caption.131}
-\contentsline {subparagraph}{Envoi d'une commande}{31}{section*.132}
-\contentsline {subparagraph}{R\IeC {\'e}ception de la r\IeC {\'e}ponse}{31}{section*.133}
+\contentsline {subparagraph}{Envoi d'une commande}{32}{section*.132}
+\contentsline {subparagraph}{R\IeC {\'e}ception de la r\IeC {\'e}ponse}{32}{section*.133}
 \contentsline {paragraph}{Backend}{32}{section*.135}
-\contentsline {subparagraph}{Les objets Command}{32}{section*.136}
+\contentsline {subparagraph}{Les objets Command}{33}{section*.136}
 \contentsline {subparagraph}{Le command executor}{33}{figure.caption.139}
-\contentsline {subsection}{\numberline {3.5.3}Les Queries}{33}{subsection.140}
-\contentsline {paragraph}{Backend}{33}{section*.141}
+\contentsline {subsubsection}{\numberline {3.5.2.4}Les Queries}{34}{subsubsection.140}
+\contentsline {paragraph}{Backend}{34}{section*.141}
 \contentsline {subparagraph}{Les objets query}{34}{section*.142}
-\contentsline {subparagraph}{Le query executor}{34}{section*.143}
-\contentsline {paragraph}{}{34}{section*.144}
-\contentsline {subsection}{\numberline {3.5.4}Bilan}{34}{subsection.145}
-\contentsline {paragraph}{}{34}{section*.146}
+\contentsline {subparagraph}{Le query executor}{35}{section*.143}
+\contentsline {paragraph}{}{35}{section*.144}
+\contentsline {subsection}{\numberline {3.5.3}Bilan}{35}{subsection.145}
+\contentsline {paragraph}{}{35}{section*.146}
 \contentsline {paragraph}{}{35}{section*.147}
-\contentsline {subsection}{\numberline {3.5.5}Critiques du mod\IeC {\`e}le}{35}{subsection.148}
-\contentsline {subsubsection}{\numberline {3.5.5.1}L'exemple de la migration des \IeC {\'e}v\IeC {\'e}nements}{35}{subsubsection.149}
-\contentsline {paragraph}{}{35}{section*.150}
-\contentsline {paragraph}{}{35}{section*.151}
+\contentsline {subsection}{\numberline {3.5.4}Critiques du mod\IeC {\`e}le}{36}{subsection.148}
+\contentsline {subsubsection}{\numberline {3.5.4.1}L'exemple de la migration des \IeC {\'e}v\IeC {\'e}nements}{36}{subsubsection.149}
+\contentsline {paragraph}{}{36}{section*.150}
+\contentsline {paragraph}{}{36}{section*.151}
 \contentsline {paragraph}{}{36}{section*.152}
-\contentsline {paragraph}{}{36}{section*.153}
-\contentsline {subsubsection}{\numberline {3.5.5.2}Bilan}{36}{subsubsection.154}
-\contentsline {paragraph}{}{36}{section*.155}
-\contentsline {paragraph}{}{36}{section*.156}
+\contentsline {paragraph}{}{37}{section*.153}
+\contentsline {subsubsection}{\numberline {3.5.4.2}Bilan}{37}{subsubsection.154}
+\contentsline {paragraph}{}{37}{section*.155}
+\contentsline {paragraph}{}{37}{section*.156}
 \contentsline {paragraph}{}{37}{section*.157}
 \contentsline {chapter}{\numberline {4}Organisation et difficult\IeC {\'e}s rencontr\IeC {\'e}es}{38}{chapter.158}
 \contentsline {section}{\numberline {4.1}Arriv\IeC {\'e}e et p\IeC {\'e}riode d'adaptation}{38}{section.159}
 \contentsline {subsection}{\numberline {4.1.1}L'environnement}{38}{subsection.160}
 \contentsline {subsection}{\numberline {4.1.2}Notes}{38}{subsection.161}
 \contentsline {subsection}{\numberline {4.1.3}Bin\IeC {\^o}mage}{39}{subsection.162}
-\contentsline {subsection}{\numberline {4.1.4}Les stand-ups}{39}{subsection.163}
+\contentsline {subsection}{\numberline {4.1.4}Les stand-up}{39}{subsection.163}
 \contentsline {section}{\numberline {4.2}Les difficult\IeC {\'e}s}{39}{section.164}
 \contentsline {paragraph}{}{39}{section*.165}
 \contentsline {paragraph}{}{39}{section*.166}

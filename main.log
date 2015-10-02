@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  28 SEP 2015 16:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.25)  2 OCT 2015 17:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1159,7 +1159,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 ) (./Chapters/Chapter3.tex [9] [10]
 Chapter 3.
 ------------------------------------------------------------------------------
- 3 \IeC {\^E}tre d\IeC {\'e}veloppeur \IeC {\`a} Cadremploi
+ 3 \IeC {\^E}tre d\IeC {\'e}veloppeur de Cadremploi
 ------------------------------------------------------------------------------
 <Pictures/CE_logo.png, id=935, 1155.31625pt x 700.6175pt>
 File: Pictures/CE_logo.png Graphic file (type png)
@@ -1183,38 +1183,30 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 File: Pictures/backoffice.png Graphic file (type png)
 
 <use Pictures/backoffice.png>
-Package pdftex.def Info: Pictures/backoffice.png used on input line 19.
+Package pdftex.def Info: Pictures/backoffice.png used on input line 20.
 (pdftex.def)             Requested size: 542.71625pt x 253.47673pt.
 
-Overfull \hbox (55.40652pt too wide) in paragraph at lines 18--21
+Overfull \hbox (55.40652pt too wide) in paragraph at lines 19--22
  |  [] 
  []
 
-
-Package caption Warning: \label without proper \caption on input line 50.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `pic:suivi client backoffice' on page 12 undefined on 
-input line 36.
-
-[12] <Pictures/stats.png, id=948, 1222.5675pt x 623.32875pt>
+[12] <Pictures/stats.png, id=947, 1222.5675pt x 623.32875pt>
 File: Pictures/stats.png Graphic file (type png)
 
 <use Pictures/stats.png>
-Package pdftex.def Info: Pictures/stats.png used on input line 49.
+Package pdftex.def Info: Pictures/stats.png used on input line 53.
 (pdftex.def)             Requested size: 500.9664pt x 255.41426pt.
 
-Overfull \hbox (13.65668pt too wide) in paragraph at lines 48--51
+Overfull \hbox (13.65668pt too wide) in paragraph at lines 52--55
  |  [] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13 <./Pictures/backoffice.png>]) (./Chapters/Chapter3/section2.tex [14 <./Pict
-ures/stats.png>]
-<Pictures/EspaceRecruteur.png, id=957, 1889.0575pt x 950.55125pt>
+[13 <./Pictures/backoffice.png>] [14 <./Pictures/stats.png>])
+(./Chapters/Chapter3/section2.tex [15]
+<Pictures/EspaceRecruteur.png, id=960, 1889.0575pt x 950.55125pt>
 File: Pictures/EspaceRecruteur.png Graphic file (type png)
 
 <use Pictures/EspaceRecruteur.png>
@@ -1222,59 +1214,66 @@ Package pdftex.def Info: Pictures/EspaceRecruteur.png used on input line 19.
 (pdftex.def)             Requested size: 417.47307pt x 210.0647pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 28.
 
-[15] [16 <./Pictures/EspaceRecruteur.png>]) (./Chapters/Chapter3/equipe.tex
-[17]
+[16 <./Pictures/EspaceRecruteur.png>] [17]) (./Chapters/Chapter3/equipe.tex
+[18]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 18.
 
-[18]) (./Chapters/Chapter3/technologies.tex [19]
-<Pictures/play_logo.png, id=980, 2162.0775pt x 1129.21875pt>
+[19]) (./Chapters/Chapter3/technologies.tex
+<Pictures/play_logo.png, id=979, 2162.0775pt x 1129.21875pt>
 File: Pictures/play_logo.png Graphic file (type png)
 
 <use Pictures/play_logo.png>
 Package pdftex.def Info: Pictures/play_logo.png used on input line 9.
 (pdftex.def)             Requested size: 125.24318pt x 65.40685pt.
 
-<Pictures/scala_logo.png, id=981, 682.55pt x 682.55pt>
+<Pictures/scala_logo.png, id=980, 682.55pt x 682.55pt>
 File: Pictures/scala_logo.png Graphic file (type png)
 
 <use Pictures/scala_logo.png>
 Package pdftex.def Info: Pictures/scala_logo.png used on input line 11.
 (pdftex.def)             Requested size: 62.61841pt x 62.61414pt.
- [20 <./Pictures/play_logo.png> <./Pictures/scala_logo.png>] <Pictures/angular_
-logo.png, id=989, 2007.5pt x 533.995pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20] [21 <./Pictures/play_logo.png> <./Pictures/scala_logo.png>]
+<Pictures/angular_logo.png, id=992, 2007.5pt x 533.995pt>
 File: Pictures/angular_logo.png Graphic file (type png)
 
 <use Pictures/angular_logo.png>
 Package pdftex.def Info: Pictures/angular_logo.png used on input line 45.
 (pdftex.def)             Requested size: 166.98668pt x 44.41527pt.
 
-<Pictures/intellij_logo.png, id=990, 731.73375pt x 903.375pt>
+<Pictures/intellij_logo.png, id=993, 731.73375pt x 903.375pt>
 File: Pictures/intellij_logo.png Graphic file (type png)
 
 <use Pictures/intellij_logo.png>
-Package pdftex.def Info: Pictures/intellij_logo.png used on input line 66.
+Package pdftex.def Info: Pictures/intellij_logo.png used on input line 68.
 (pdftex.def)             Requested size: 62.61841pt x 77.30276pt.
- [21 <./Pictures/angular_logo.png>]
+
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 69.
+(hyperref)                than one, level fixed on input line 71.
 
-<Pictures/jenkins_logo.png, id=997, 144.54pt x 144.54pt>
+[22 <./Pictures/angular_logo.png> <./Pictures/intellij_logo.png>]
+<Pictures/jenkins_logo.png, id=1002, 144.54pt x 144.54pt>
 File: Pictures/jenkins_logo.png Graphic file (type png)
 
 <use Pictures/jenkins_logo.png>
-Package pdftex.def Info: Pictures/jenkins_logo.png used on input line 80.
+Package pdftex.def Info: Pictures/jenkins_logo.png used on input line 82.
 (pdftex.def)             Requested size: 62.61841pt x 62.61855pt.
- [22 <./Pictures/intellij_logo.png> <./Pictures/jenkins_logo.png>]) (./Chapters
-/Chapter3/architecture.tex
+
+Overfull \hbox (2.97618pt too wide) in paragraph at lines 93--94
+[]\T1/lmr/m/n/10.95 Environnement de développe-ment, cor-re-spond au poste de d
+éveloppeur qui récupère
+ []
+
+) (./Chapters/Chapter3/architecture.tex [23 <./Pictures/jenkins_logo.png>]
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 9.
@@ -1283,37 +1282,37 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 15.
 
-[23] (./Chapters/Chapter3/architecture/organisation.tex
+(./Chapters/Chapter3/architecture/organisation.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 4.
 
-
-<Figures/Chapter3/architecture/tiersvscqrs.png, id=1010, 893.3375pt x 394.47375
+[24]
+<Figures/Chapter3/architecture/tiersvscqrs.png, id=1014, 893.3375pt x 394.47375
 pt>
 File: Figures/Chapter3/architecture/tiersvscqrs.png Graphic file (type png)
  <use Figures/Chapter3/architecture/tiersvscqrs.png>
 Package pdftex.def Info: Figures/Chapter3/architecture/tiersvscqrs.png used on 
 input line 15.
 (pdftex.def)             Requested size: 357.32866pt x 157.7867pt.
- [24 <./Figures/Chapter3/architecture/tiersvscqrs.png>] [25] [26])
-(./Chapters/Chapter3/architecture/implementation.tex [27]
-<Pictures/EventSourcing/events.png, id=1033, 1100.11pt x 509.905pt>
+ [25 <./Figures/Chapter3/architecture/tiersvscqrs.png>] [26] [27])
+(./Chapters/Chapter3/architecture/implementation.tex [28]
+<Pictures/EventSourcing/events.png, id=1034, 1100.11pt x 509.905pt>
 File: Pictures/EventSourcing/events.png Graphic file (type png)
 
 <use Pictures/EventSourcing/events.png>
 Package pdftex.def Info: Pictures/EventSourcing/events.png used on input line 2
 6.
-(pdftex.def)             Requested size: 166.98668pt x 77.39276pt.
- [28 <./Pictures/EventSourcing/events.png>] [29] <Pictures/akka_logo.png, id=10
-42, 1284.8pt x 526.96875pt>
+(pdftex.def)             Requested size: 250.48637pt x 116.10081pt.
+ [29 <./Pictures/EventSourcing/events.png>] [30] <Pictures/akka_logo.png, id=10
+44, 1284.8pt x 526.96875pt>
 File: Pictures/akka_logo.png Graphic file (type png)
 
 <use Pictures/akka_logo.png>
 Package pdftex.def Info: Pictures/akka_logo.png used on input line 70.
 (pdftex.def)             Requested size: 104.36826pt x 42.80162pt.
 
-<Pictures/kafka_logo.jpg, id=1043, 475.7775pt x 517.935pt>
+<Pictures/kafka_logo.jpg, id=1045, 475.7775pt x 517.935pt>
 File: Pictures/kafka_logo.jpg Graphic file (type jpg)
 
 <use Pictures/kafka_logo.jpg>
@@ -1325,8 +1324,7 @@ Underfull \hbox (badness 6995) in paragraph at lines 79--85
 ntes en-tre autres.
  []
 
-[30 <./Pictures/akka_logo.png> <./Pictures/kafka_logo.jpg>]
-<Pictures/EventSourcing/gestion_command.jpg, id=1052, 2457.18pt x 3276.24pt>
+<Pictures/EventSourcing/gestion_command.jpg, id=1046, 2457.18pt x 3276.24pt>
 File: Pictures/EventSourcing/gestion_command.jpg Graphic file (type jpg)
 
 <use Pictures/EventSourcing/gestion_command.jpg>
@@ -1334,7 +1332,11 @@ Package pdftex.def Info: Pictures/EventSourcing/gestion_command.jpg used on inp
 ut line 101.
 (pdftex.def)             Requested size: 166.98668pt x 222.6114pt.
 
-<Pictures/implementation/capsule_orange.png, id=1053, 319.1925pt x 93.34875pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[31 <./Pictures/akka_logo.png> <./Pictures/kafka_logo.jpg>]
+<Pictures/implementation/capsule_orange.png, id=1055, 319.1925pt x 93.34875pt>
 File: Pictures/implementation/capsule_orange.png Graphic file (type png)
 
 <use Pictures/implementation/capsule_orange.png>
@@ -1342,15 +1344,19 @@ Package pdftex.def Info: Pictures/implementation/capsule_orange.png used on inp
 ut line 121.
 (pdftex.def)             Requested size: 166.98668pt x 48.83504pt.
 
-<Pictures/implementation/capsule_verte.png, id=1054, 322.20375pt x 76.285pt>
+<Pictures/implementation/capsule_verte.png, id=1056, 322.20375pt x 76.285pt>
 File: Pictures/implementation/capsule_verte.png Graphic file (type png)
 
 <use Pictures/implementation/capsule_verte.png>
 Package pdftex.def Info: Pictures/implementation/capsule_verte.png used on inpu
 t line 124.
 (pdftex.def)             Requested size: 166.98668pt x 39.53688pt.
- [31 <./Pictures/EventSourcing/gestion_command.jpg>]
-<Pictures/EventSourcing/separation_command_et_handler.png, id=1060, 767.86874pt
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[32 <./Pictures/EventSourcing/gestion_command.jpg>]
+<Pictures/EventSourcing/separation_command_et_handler.png, id=1061, 767.86874pt
  x 180.675pt>
 File: Pictures/EventSourcing/separation_command_et_handler.png Graphic file (ty
 pe png)
@@ -1364,10 +1370,8 @@ Overfull \hbox (19.25847pt too wide) in paragraph at lines 137--150
 ué précédem-ment, l'équipe Cadrem-ploi a représenté
  []
 
-[32 <./Pictures/implementation/capsule_orange.png> <./Pictures/implementation/c
-apsule_verte.png> <./Pictures/EventSourcing/separation_command_et_handler.png>]
 
-<Pictures/EventSourcing/command_executor.png, id=1065, 613.29124pt x 427.5975pt
+<Pictures/EventSourcing/command_executor.png, id=1062, 613.29124pt x 427.5975pt
 >
 File: Pictures/EventSourcing/command_executor.png Graphic file (type png)
  <use Pictures/EventSourcing/command_executor.png>
@@ -1376,19 +1380,16 @@ put line 154.
 (pdftex.def)             Requested size: 166.98668pt x 116.42503pt.
 
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 179.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 181.
-
-[33 <./Pictures/EventSourcing/command_executor.png>]
+[33 <./Pictures/implementation/capsule_orange.png> <./Pictures/implementation/c
+apsule_verte.png> <./Pictures/EventSourcing/separation_command_et_handler.png>]
+[34 <./Pictures/EventSourcing/command_executor.png>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 205.
 
-[34] [35]))) (./Chapters/Chapter4.tex [36] [37]
+[35] [36]))) (./Chapters/Chapter4.tex [37]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Organisation et difficult\IeC {\'e}s rencontr\IeC {\'e}es
@@ -1446,10 +1447,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8713A70FD420384B632FFDAA241ED97B;23566.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: DBF9059B812691DAE6E900FF49FCA828;23541.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1458,21 +1456,21 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
  ) 
 Here is how much of TeX's memory you used:
  14211 strings out of 495003
- 202964 string characters out of 6180449
- 261631 words of memory out of 5000000
+ 202970 string characters out of 6180449
+ 261640 words of memory out of 5000000
  16907 multiletter control sequences out of 15000+600000
  77087 words of font info for 52 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 49i,12n,45p,514b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,45p,514b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb>
-Output written on main.pdf (51 pages, 4546715 bytes).
+Output written on main.pdf (51 pages, 4546437 bytes).
 PDF statistics:
- 1197 PDF objects out of 1200 (max. 8388607)
+ 1194 PDF objects out of 1200 (max. 8388607)
  240 named destinations out of 1000 (max. 500000)
  1433 words of extra memory for PDF output out of 10000 (max. 10000000)
 

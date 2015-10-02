@@ -48,8 +48,10 @@ Akka est aussi utilisé pour programmer l'exécution de scripts récurrents.
 Du côté front, l'équipe a utilisé le framework AngularJS ainsi que la librairie D3.js qui permettent des animations dynamiques.
 Ce choix de technologie peut être soutenu pour les points suivants:
 \begin{itemize}
-  \item Angular permet une maintenabilité de l'application aisée, notamment en demandant une structure de type MVC au développeur, ainsi qu'en utilisant du HTMl, qui est déclaratif, pour définir l'interface utilisateur.
+  \item Angular permet une maintenabilité de l'application aisée, notamment en demandant une structure de type MVC au développeur, ainsi qu'en utilisant du HTML, qui est déclaratif, pour définir l'interface utilisateur.
   \item Il s'agit de plus d'un framework flexible puisqu'il est possible de composer une application en prototypant des composants qui sont de plus facilement testables.
+  \item De très nombreuses librairies sont disponibles ce qui permet des possibilités très larges à l'équipe et notamment une utilisation très interactive des formulaires.
+  \item L'intégration des tests y est forte ce qui est important pour l'équipe Cadremploi.
 \end{itemize}
 
 
@@ -88,7 +90,7 @@ Bien que nous avions été tenté de mettre en place un Jenkins avec mon équipe
 Je n'ai pas eu de mal à l'utiliser puisqu'une fois configuré, cet outil est réelement simple d'utilisation.
 Plusieurs environnements de développement sont utilisés par Cadremploi comme pour les autres équipes de Figaro Classifieds:
 \begin{itemize}
-  \item{Environnement de développement}, où les développeurs postent régulièrement les améliorations qu'ils mettent en place. Jenkins n'est pas utilisé pour cet environnement puisque les changements y sont publiés directement via Git.
+  \item{Environnement de développement}, correspond au poste de développeur qui récupère directement les changements via Git.
   \item{Environnement de recette}, où la Project Owner vérifie que les changements apportés fonctionnent effectivement et les valide.
   \item{Environnement de pré-production} qui est un environnement qui ressemble autant que possible à l'environnement de production où sont effectués les derniers tests avant la mise en production
   \item{Environnement de production} qui est la dernière étape, contenant l'application utlisée réelement par les utilisateurs

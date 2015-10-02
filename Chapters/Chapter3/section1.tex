@@ -1,9 +1,10 @@
 \section{Description générale de la nouvelle application}
 \label{sec:Description generale de l'application}
 L'application Espace Recruteur permet à des recruteurs d'entreprise de publier dans la partie publique du site Cadremploi une offre destinée à des cadres et cadres supérieurs.
-Néanmoins, il s'agit de plus qu'un simple formulaire.
-En effet, en plus du remplissage d'un formulaire esthétique permettant de rédiger l'offre qu'il souhaite déposer, l'espace recruteur propose plusieurs services.
-Le recruteur ayant un compte sur l'espace recruteur du site Cadremploi dispose d'un panneau de contrôle lui permettant de gérer ses offres et d'en consulter les informations associées.
+Le site actuel est aujourd'hui vieillissant et une nécessité de le remplacer s'impose, de manière à pouvoir augmenter le chiffre d'affaire des offres e-commerce.
+Le nouvel Espace Recruteur permet en effet à des recruteurs de rédiger puis de payer leurs annonces en direct.
+De plus, au remplissage d'un formulaire esthétique permettant de rédiger l'offre qu'il souhaite déposer s'y ajoutent pour le recruteur propose plusieurs services.
+Il dispose en effet d'un panneau de contrôle lui permettant de gérer ses offres et d'en consulter les informations associées.
 De plus, une équipe de Figaro CLASSIFIEDS supervise via une seconde application dédiée, la publication des offres.
 
 %---------------------------------------------------------------
@@ -26,16 +27,19 @@ Les fonctionnalités nécessaires sur ce nouveau backoffice sont:
   \item Le login "en tant que" un autre recruteur:
   Il est possible depuis le backoffice de se connecter pour éditer une offre comme si on était le recruteur qui l'avait rédigé et ainsi y apporter tous les changements désirés.
   Cela permet un contrôle parfait sur une offre puisque toutes les actions permises pour le recruteur le sont aussi pour le superviseur.
-  Il est ainsi possible de gérer les problèmes potentiels en effectuant les modifications nécessaires à la place du recruteur.
-  \item La gestion de la discrimination des offres en fonction de leur contenu:
-  Une des fonctionnalité de l'espace recruteur est la détection de termes discriminants dans les champs textuels d'une offre.
+  Il est ainsi possible de gérer les problèmes potentiels en effectuant les modifications nécessaires à la place du recruteur dans l'objectif d'une mise en ligne rapide de l'offre.
+  \item La gestion de la discrimination des offres en fonction de leur contenu.
+  En effet, les offres d'emploi sont soumis à une législation particulière et il est nécessaire pour un site tel que Cadremploi de s'assurer face à la loi.
+  Une des fonctionnalité de l'espace recruteur est ainsi la détection de termes discriminants dans les champs textuels d'une offre.
   Ainsi, si une offre est détectée comme présentant des termes discriminants, elle n'est pas directement publiée sur le site.
-  Une offre discriminante ne sera visible que sur le backoffice d'où elle sera relue par des responsables de la relation client (RC).
+  Une offre discriminante ne sera visible que sur le backoffice d'où elle sera relue par des chargés de la relation client (RC).
   Les RC sont chargés de traiter, si nécessaire avec le client, les offres discriminantes afin de les rendre acceptables dans les plus brefs délais.
   Le but de cette procédure est de ne pas handicaper le client et de régler les problèmes rencontrés rapidement.
-  \item Le suivi de l'évolution du client au cours de la création de son offre (\ref{pic:suivi client backoffice}).
+  \item Le suivi de l'évolution du client au cours de la création de son offre.
   Cette fonctionnalité permet à un RC de pouvoir se rendre compte du parcours du client lorsque celui-ci rédige son offre (l'ordre dans lequel il a rempli les champs, le temps qu'il a mis à les remplir, ...) et donc de pouvoir l'aider au mieux lors de sa prise de contact.
   Les événements de modification effectués par le recruteur au cours de sa saisie sont donc visibles par le RC consultant une offre donnée.
+  Ce service permet une détection des fraudes améliorée, mais aussi de connaître l'identité de chaque personne ayant effectué une action sur l'offre.
+  Cela permet notamment de pouvoir attribuer des primes aux RC pour le volume d'offres validés mais aussi de sanctionner les mauvais suivis ou les mauvaises corrections.
 \end{itemize}
 
 %---------------------------------------------------------------
@@ -53,7 +57,10 @@ Les fonctionnalités nécessaires sur ce nouveau backoffice sont:
 \end{figure}
 Un système de statistiques mesurant la rentabilité de l'annonce est mis en place pour que le recruteur puisse suivre l'évolution de son offre.
 Ce système de statistiques est totalement externalisé de l'application et a été développé par une équipe différente de celle de Cadremploi.
-Il permet ainsi à tout FIGARO CLASSIFIEDS de récupérer des statistiques sur l'utilisation de l'espace recruteur de Cadremploi.
+Il permet ainsi à tout FIGARO CLASSIFIEDS de récupérer des statistiques sur les rendements des offres.
+Des données clés concernant les actions des candidats sur les offres (visualisation de l'offre, candidatures, ...) sont collectés sur www.cadremploi.fr dans un système unique.
+Ces données sont aggrégées puis restitués sous la forme d'API REST à la demande.
+ces API sont utilisées sur l'Espace Recruteur pour présenter au recruteur un retour sur l'attractivité de son offre afin qu'il puisse en adapter éventuellement le contenu pour obtenir de meilleurs retours.
 L'incorporation de cette API de statistiques ainsi que la récupération des informations nécessaires étaient deux points importants dans le développement du nouvel Espace Recruteur.
 %---------------------------------------------------------------
 \subsubsection{Label qualité}

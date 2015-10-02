@@ -23,7 +23,7 @@ En effet, l'idée fondamentale de l'Event Sourcing est qu'en enregistrant chaque
 C'est alors en aggrégeant tous les événements ayant eu lieu jusqu'à un instant t propres à une offre, une entreprise, mais plus généralement un aggrégat, qu'on arrive à se représenter l'état de cet aggrégat à l'instant t.
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.4\textwidth]{Pictures/EventSourcing/events.png}
+    \includegraphics[width=0.6\textwidth]{Pictures/EventSourcing/events.png}
     \caption{Il est possible de connaître l'état d'un aggrégat en aggrégeant les événements s'y référant}
   \end{center}
 \end{figure}
@@ -37,7 +37,7 @@ Ce type de stockage est néanmoins extrêmement rapide, ce qui nous intéresse d
 %-------------------------------------------------------------------------
 \paragraph{La lecture}
 \label{par:La lecture}
-Les données disponibles en lecture le sont depuis un index ElasticSearch qui est mis en place au démarrage de l'application.
+Les données disponibles en lecture le sont depuis un index ElasticSearch.
 \label{def:ElasticSearch}ElasticSearch est un moteur de recherche open source qui permet de disposer en quelques minutes seulement d'un moteur de recherche clusterisé, automatiquement sauvegardé et répliqué et interrogeable via une API REST.
 %-------------------------------------------------------------------------
 \subparagraph{Mise à jour asynchrone de la couche}
@@ -167,7 +167,7 @@ Cet exécuteur se charge de:
 Si une erreur survient lors de l'exécution d'une commande par le CommandExecutor, elle est utilisée pour informer le front directement via des fonctions de récupérations offertes par le framework Play.
 
 %-------------------------------------------------------------------------
-\subsection{Les Queries}
+\subsubsection{Les Queries}
 \label{sub:Les Queries}
 %-------------------------------------------------------------------------
 Une query est un objet permettant à l'utilisateur de requêter de la donnée provenant du serveur.
@@ -194,7 +194,7 @@ Le résultat des queries est sérialisé puis directement envoyé au front.
 De même que le CommandExecutor, le QueryExecutor est une entité exposant une méthode permettant d'exécuter une requête donnée.
 Puisqu'aucune modification n'est faite par une "query", la QueryExecutor se charge uniquement de récupérer le handler associé à la requête puis de renvoyer le QueryResult associé.
 Elle va lire l'information recherchée dans la projection qui convient et retourner ainsi extrêmement rapidement la réponse à la requête.
-En effet, nous avons vu que les projections aggrègent des objets taillés sur mesure pour ces requêtes et qu'aucun traitement supreflu n'est fait sur la donnée.
+En effet, nous avons vu que les projections aggrègent des objets taillés sur mesure pour ces requêtes et qu'aucun traitement superflu n'est fait sur la donnée.
 
 \paragraph{}
 Les exécuteurs de requêtes et de commandes sont utilisés comme des courroies par lesquelles passent toutes les actions de lecture et d'écriture faites sur le système.
@@ -249,10 +249,10 @@ Cela entraînerait certainement des complications à chiffrer puisque le code pe
 Le modèle CQRS couplé à de l'Event Sourcing offre de très nombreux bénéfices.
 Il offre notamment beaucoup de clarté de code mais multiplie pour ce faire les lignes nécessaires à l'implémentation de la solution.
 Manquant de documentation sur le sujet, certains éléments de simplification peuvent paraître intéressants à première vue, mais avoir une conséquence inattendue et gênante.
-En plus de ce cas de migration des événements demandant la modification de la base et donc de l'historique, qui devrait demeurrer immutable, de l'application, des dérives du modèle telles que la création de commandes avec une valeur de retour par exemple, sont survenues au cours du développement de l'Espace Recruteur.
+En plus de ce cas de migration des événements demandant la modification de la base et donc de l'historique, qui devrait demeurer immutable, de l'application, des dérives du modèle telles que la création de commandes avec une valeur de retour par exemple, sont survenues au cours du développement de l'Espace Recruteur.
 %-------------------------------------------------------------------------
 \paragraph{}
-Ce type d'architecture étant récente, l'implémentation du modèle CQRS + Event Sourcing a demandé à notre équipe la création d'une sorte de framework maison.
+Ce type d'architecture étant récente, l'implémentation du modèle CQRS + Event Sourcing a demandé à notre équipe la création d'un framework maison.
 Cette création, quasi expérimentale et parallèle au développement de l'application Espace Recruteur, s'est retrouvée rapidement bloquante pour la validation de nouvelles tâches.
 En effet, des éléments innatendus, car peu ou pas mentionné dans les documents sur lesquels se base notre équipe pour mettre en place ce framework, ont demandé parfois plusieurs semaines de développement.
 %-------------------------------------------------------------------------

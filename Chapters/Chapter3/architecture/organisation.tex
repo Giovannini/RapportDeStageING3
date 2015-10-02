@@ -36,12 +36,12 @@ On y trouve ainsi les objets nécessaires à l'application des règles métiers 
 Un aggrégat est un regroupement d'objets tirés du domaine qui est traité comme une unité.
 Il est généralement repésenté par une classe possédant un identifiant unique dans toute l'application mais on peut aussi trouver des représentations d'aggrégats via plusieurs classes.
 Dans ce second cas, une d'entre elle est dite classe racine et tout accès à l'aggrégat par l'extérieur se fait via cette classe tandis que toutes les autres restent internes à l'agrégat.
-Cette entité contient ainsi la logique du domaine (\ref{par:Le domaine}) et permet d'effectuer des contrôles.
+Cette entité contient ainsi la logique du domaine et permet d'effectuer des contrôles.
 %-------------------------------------------------------------------------------
 \paragraph{Les repositories (ou dépôts)}
 \label{par:Les repositories (ou dépôts)}
 Les différentes instances des aggrégats sont stockées dans un objet appelé repository (dépôt en français).
-Ces objets servent d'intermédiaires entre le domaine (\ref{par:Le domaine}) et la base de donnée.
+Ces objets servent d'intermédiaires entre le domaine et la base de donnée.
 On retrouve dans ces objets des méthodes du type 'save' permettant de sauvegarder les changements relatifs à un aggrégat ou 'getById', récupérant un aggrégat particulier.
 
 %-------------------------------------------------------------------------
@@ -86,7 +86,7 @@ Cette méthode permet de récupérer seulement les données dont on a besoin en 
 L'utilisation de projections permet de construire ces DTO taillés sur mesure pour l'IHM.
 La projection est un concept aussi simple qu'important de l'Event Sourcing.
 Le but d'une projection est de dériver un état d'un flux d'événements.
-La projections souscrit à un ou plusieurs flux d'événements de manière à aggréger les données qui l'intéresse uniquement.
+La projections souscrit à un ou plusieurs flux d'événements de manière à aggréger les données qui l'intéressent uniquement.
 Elle dérive alors des informations particulières des événements émis depuis la couche de modification des données de manière à construire les DTO qui seront utilisés dans la couche lecture.
 En répercutant les changements qu'elles perçoivent, les projections mettent ainsi à jour la couche de lecture symétriquement à la couche d'écriture.
 Un de leur intérêt est qu'il est possible de projeter, pour tout flux d'événement, ces données à faire persister sur tout type de représentation structurelle, qu'il s'agisse d'une base de donnée SQL, NoSQL ou même un stockage en mémoire qui sera reconstruit depuis un flux d'événement local au redémarrage du serveur.

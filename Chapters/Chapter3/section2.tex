@@ -35,24 +35,31 @@ Pour l'équipe Cadremploi, cela se caractérisait par des meetings quotidien dev
 Comme dans de nombreuses méthodes Agiles, la communication au sein de l'équipe passe notamment par un stand-up-meeting quotidien ainsi qu'un affichage mural composé de posts-its représentant les tâches relatives à l'évolution de l'application.
 Le système de tickets post-it, des stand-up-meeting était très bien suivi bien que leur pratique ne soit pas un exercice figé.
 Le contenu des stand-up-meeting est par exemple passé au cours de mon stage de "Qu'est-ce que j'ai fait?, Qu'est-ce que je vais faire?, Ai-je des problèmes?" à des questions plus pratiques: "Qu'est-ce que j'ai fait de réellement impactant pour le reste de l'équipe? Quels dysfonctionnements ai-je remarqué?".
-Finalement, plutôt que l'évolution de chacun dans sa tâche, c'est l'évolution de l'application elle-même qui était alors discutée durant les stands-up, réduisant ainsi le œtemps de l'exercice, ce qui était une nécessité dans cette équipe de 10 personnes.
-De plus, suite à un amoncellement de tâches trop important qui produisait un confus global lors de la lecture du tableau, il a été mis en place des règles permettant de limiter le nombre de tickets en cours de traitement, permettant une meilleure organisation de l'équipe.
+Finalement, plutôt que l'évolution de chacun dans sa tâche, c'est l'évolution de l'application elle-même qui était alors discutée durant les stands-up, réduisant ainsi le temps de l'exercice, ce qui était une nécessité dans cette équipe de 10 personnes.
+De plus, suite à un amoncellement de tâches trop important qui produisait une confusion global lors de la lecture du tableau, il a été mis en place des règles permettant de limiter le nombre de tickets en cours de traitement, permettant une meilleure organisation de l'équipe.
 %-------------------------------------------------------------------------------
 \paragraph{Cycle de vie d'une tâche}
 Les post-its suivaient un cycle de vie dont les étapes rentraient dans les catégories suivantes:
 \begin{itemize}
   \item "Nouveau", il s'agit du statut des tickets qui viennent d'arriver sur le tableau et qui seront donc à traiter prochainement
   \item "En cours", il s'agit d'un ticket qu'un membre de l'équipe est en train de traiter.
-  \item "Recette" équipe, lorsqu'une tâche est terminée, elle doit être validée par un membre de l'équipe.
+  \item "Recette équipe", lorsqu'une tâche est terminée, elle doit être validée par un membre de l'équipe.
   Ce système de team review permet d'éviter de nombreuses erreurs au cours du développement de l'application: une vérification du code ainsi que des tests écrits sont effectués.
-  \item "Recette" PO lorsque le ticket passe l'étape de recette équipe, il arrive en recette PO.
+  Il s'en suit des actions correctives de fonctionnement ou de refactoring avant que le ticket ne puisse passer à l'étape suivante.
+  \item "Recette PO" lorsque le ticket passe l'étape de recette équipe, il arrive en recette PO.
   Le Project Owner s'occupe donc de vérifier que les modifications apportées correspondent bien aux attentes et qu'elles ne perturbent pas les anciennes fonctionnalités.
   Si un problème est rencontré, le PO rédige ses retours et la personne responsable du ticket se charge de corriger les problèmes.
   Le ticket reste dans le même état mais un jeu d'étiquettes "Retours Recette" et "Corrigé" est déposé sur le ticket pour qu'il soit possible de suivre l'évolution des corrections.
-  \item "Validé", le PO valide le ticket et les modifications seront mises en production sous peu
+  \item "Validé", le PO valide le ticket.
+  Les modifications sont intégrées à la release hebdomadaire pour une mise en production au plus tôt ou alors décalées à une release suivante pour des raisons qui peuvent être diverses
+  \begin{itemize}
+    \item dépendances entre stories
+    \item complexité de la livraison
+    \item ordre d'apparition en ligne particulier choisi par la PO
+  \end{itemize}
   \item "En attente", le ticket ne peut être traité pour le moment; une synchronisation avec une autre équipe est nécessaire ou bien des questions restent sans réponse.
 \end{itemize}
-Ainsi les membres de l'équipe choisissent arbitrairement un ticket qu'il traitent en collant une étiquette, un autocollant les représentant dessus et déplacent le ticket dans la catégorie à laquelle il correspond.
+Ainsi les membres de l'équipe choisissent un ticket en fonction de son importance, de son urgence ainsi que de leur préférence, qu'il traitent en collant une étiquette, un autocollant les représentant dessus et déplacent le ticket dans la catégorie à laquelle il correspond.
 Les tickets validés sont généralement mis en production chaque semaine, le jeudi, à l'exception de quelques mises en productions (MEP) exceptionnelles.
 \paragraph{Organisation du tableau}
 Le tableau sur lequel sont affichés les tickets est plutôt grand et plusieurs méthodes sont utilisées pour permettre à l'équipe de s'y retrouver rapidement.
